@@ -1,14 +1,15 @@
 {
   "name": "appplugin-one",
   "version": "0.0.1",
-  "description": "An example plugin implementation for the NodeJS-App console application.",
-  "main": "index.js",
+  "description": "An example plugin implementation for the haystacks platform.",
+  "main": "./src/main.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SethEden/AppPlugin-One.git"
+    "url": "git+https://github.com/SethEden/pluginOne.git"
   },
   "keywords": [
     "NodeJS",

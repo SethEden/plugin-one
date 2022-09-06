@@ -25,8 +25,6 @@ function initializePlugin() {
   return returnData;
 };
 
-initializePlugin();
-
 export default {
   initializePlugin
 };

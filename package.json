@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/SethEden/AppPlugin-One/issues"
   },
-  "homepage": "https://github.com/SethEden/AppPlugin-One#readme"
+  "homepage": "https://github.com/SethEden/AppPlugin-One#readme",
+  "dependencies": {
+    "@haystacks/async": "^0.1.2",
+    "@haystacks/constants": "^0.1.1"
+  }
 }

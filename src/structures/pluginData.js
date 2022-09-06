@@ -18,5 +18,5 @@ const {wrd} = hayConst;
 let pluginData = {};
 
 export default {
-  [wrd.cdata]: pluginData;
+  [wrd.cdata]: pluginData
 }

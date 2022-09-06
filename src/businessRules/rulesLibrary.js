@@ -38,7 +38,8 @@ const namespacePrefix = plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cD
  */
 const initPluginRulesLibrary = function() {
   let functionName = initPluginRulesLibrary.name;
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   D[sys.cbusinessRules] = {};
   D[sys.cbusinessRules] = {
   // Business Rules
@@ -51,7 +52,8 @@ const initPluginRulesLibrary = function() {
   // END pluginOne category
   // ***********************************************************************
   }
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  console.log(`END ${namespacePrefix}${functionName} function`);
 }
 
 export default {

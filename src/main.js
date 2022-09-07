@@ -2,11 +2,14 @@
  * @file main.js
  * @module main
  * @description This is the main initialization for the plugin.
- * It contains the ...
+ * It contains the entry point and all public functions for the plugin.
  * @author Seth Hollingsead
+ * @requires module:warden
  * @date 2022/05/12
  * @copyright Copyright © 2022-… by Seth Hollingsead. All rights reserved
  */
+
+import warden from './controllers/warden.js';
 
 /**
  * @function initializePlugin
@@ -20,6 +23,7 @@
  */
 function initializePlugin() {
   console.log('BEGIN main.bootStrapPlugin function');
+  warden.initPluginData();
   let returnData = 'HELLO WORLD - FROM PluginOne';
   console.log('END main.bootStrapPlugin function');
   return returnData;

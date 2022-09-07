@@ -12,7 +12,7 @@
  */
 
 // Internal imports
-import ruleBroker from "../brokers/ruleBroker";
+import ruleBroker from '../brokers/ruleBroker.js';
 import * as plg from '../constants/plugin.constants.js';
 // External imports
 import hayConst from '@haystacks/constants';

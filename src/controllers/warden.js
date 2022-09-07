@@ -14,7 +14,7 @@
  */
 
 // Internal imports
-import * as plg from '../../constants/plugin.constants.js';
+import * as plg from '../constants/plugin.constants.js';
 import chiefRules from '../controllers/chiefRules.js';
 // External imports
 import haystacks from '@haystacks/async';

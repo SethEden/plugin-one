@@ -14,7 +14,7 @@
 
 // Internal imports
 import rules from '../businessRules/rulesLibrary.js';
-import * as plg from '../../constants/plugin.constants.js';
+import * as plg from '../constants/plugin.constants.js';
 // External imports
 import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';

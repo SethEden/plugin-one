@@ -18,7 +18,7 @@ import * as plg from '../constants/plugin.constants.js';
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
-const {bas, wrd} = hayConst;
+const {bas, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // pluginOne.controllers.chiefRules.
 const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
@@ -33,10 +33,10 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot
  */
 async function initBusinessRules() {
   let functionName = initBusinessRules.name;
-  // haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  ruleBroker.bootStrapBusinessRules();
-  // haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  await ruleBroker.bootStrapBusinessRules();
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   console.log(`END ${namespacePrefix}${functionName} function`);
 }
 

@@ -5,6 +5,7 @@
  * @requires module:pluginOneRules
  * @requires module:plugin.business.constants
  * @requires module:plugin.constants
+ * @requires module:pluginData
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
@@ -16,11 +17,12 @@
 import pluginOneRules from './rules/pluginOneRules.js';
 import * as plg_biz from '../constants/plugin.business.constants.js';
 import * as plg from '../constants/plugin.constants.js';
+import D from '../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
-const {bas, sys} = hayConst;
+const {bas, msg, sys} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // pluginOne.businessRules.rulesLibrary.
 const namespacePrefix = plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cDot + baseFileName + bas.cDot;

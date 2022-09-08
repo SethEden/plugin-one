@@ -18,7 +18,7 @@ import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
-const {bas, sys, wrd} = hayConst;
+const {bas, num, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // pluginOne.businessRules.rules.pluginOneRules.
 const namespacePrefix = plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cDot +
@@ -47,7 +47,7 @@ async function pluginOneRule01(inputData, inputMetaData) {
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   console.log(`returnData is: ${returnData}`);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -74,7 +74,7 @@ async function pluginOneRule02(inputData, inputMetaData) {
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   console.log(`returnData is: ${returnData}`);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

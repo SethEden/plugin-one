@@ -31,6 +31,8 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + b
  * the rulesLibrary and migrates that data to the D-data structure.
  * This is important now, because this data structure is how the plugin functionality will be
  * imported and subsequently executed by the haystacks framework.
+ * @author Seth Hollingsead
+ * @date 2022/09/06
  */
 async function bootStrapBusinessRules() {
   let functionName = bootStrapBusinessRules.name;

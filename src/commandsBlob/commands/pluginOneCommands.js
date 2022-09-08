@@ -1,13 +1,13 @@
 /**
- * @file pluginOneRules.js
- * @module pluginOneRules
- * @description Contains all of the business rules for the pluginOne plugin.
+ * @file pluginOneCommands.js
+ * @module pluginOneCommands
+ * @description Contains all of the commands for the pluginOne plugin.
  * @requires module:plugin.constants
  * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
- * @date 2022/09/06
+ * @date 2022/09/08
  * @copyright Copyright © 2022-… by Seth Hollingsead. All rights reserved
  */
 
@@ -20,22 +20,22 @@ import path from 'path';
 
 const {bas, num, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// pluginOne.businessRules.rules.pluginOneRules.
-const namespacePrefix = plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cDot +
-  wrd.crules + bas.cDot + baseFileName + bas.cDot;
+// pluginOne.commandsBlob.commands.pluginOneCommands.
+const namespacePrefix = plg.cpluginName + bas.cDot + sys.cCommandsBlob + bas.cDot +
+  wrd.cCommands + bas.cDot + baseFileName + bas.cDot;
 
 /**
- * @function pluginOneRule01
- * @description Outputs pluginOneRule01,
- * to verify that the business rule has been loaded when the plugin was loaded.
- * @param {string} inputData Not used for this business rule. 
+ * @function pluginOneCommand01
+ * @description Outputs pluginOneCommand01,
+ * to verify that the command has been loaded when the plugin was loaded.
+ * @param {string} inputData Not used for this business rule.
  * @param {string} inputMetaData Not used for this business rule.
- * @return {string} The string "pluginOneRules.pluginOneRule01".
+ * @return {string} The string "pluginOneCommands.pluginOneCommand01".
  * @author Seth Hollingsead
- * @date 2022/09/06
+ * @date 2022/09/08
  */
-async function pluginOneRule01(inputData, inputMetaData) {
-  let functionName = pluginOneRule01.name;
+async function pluginOneCommand01(inputData, inputMetaData) {
+  let functionName = pluginOneCommand01.name;
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
@@ -43,7 +43,7 @@ async function pluginOneRule01(inputData, inputMetaData) {
   console.log(`inputData is: ${inputData}`);
   console.log(`inputMetaData is: ${inputMetaData}`);
   let returnData = '';
-  returnData = wrd.cplugin + num.cOne + wrd.cRule + num.c01;
+  returnData = wrd.cplugin + num.cOne + wrd.cCommand + num.c01;
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   console.log(`returnData is: ${returnData}`);
@@ -52,17 +52,17 @@ async function pluginOneRule01(inputData, inputMetaData) {
 }
 
 /**
- * @function pluginOneRule02
- * @description Outputs pluginOneRule02,
- * to verify that the business rule has been loaded when the plugin was loaded.
- * @param {string} inputData Not used for this business rule. 
+ * @function pluginOneCommand02
+ * @description Outputs pluginOneCommand02,
+ * to verify that the command has been loaded when the plugin was loaded.
+ * @param {string} inputData Not used for this business rule.
  * @param {string} inputMetaData Not used for this business rule.
- * @return {string} The string "pluginOneRules.pluginOneRule02".
+ * @return {string} The string "pluginOneCommands.pluginOneCommand02".
  * @author Seth Hollingsead
- * @date 2022/09/06
+ * @date 2022/09/08
  */
-async function pluginOneRule02(inputData, inputMetaData) {
-  let functionName = pluginOneRule02.name;
+ async function pluginOneCommand02(inputData, inputMetaData) {
+  let functionName = pluginOneCommand02.name;
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
@@ -70,7 +70,7 @@ async function pluginOneRule02(inputData, inputMetaData) {
   console.log(`inputData is: ${inputData}`);
   console.log(`inputMetaData is: ${inputMetaData}`);
   let returnData = '';
-  returnData = wrd.cplugin + num.cOne + wrd.cRule + num.c02;
+  returnData = wrd.cplugin + num.cOne + wrd.cCommand + num.c02;
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   console.log(`returnData is: ${returnData}`);
@@ -79,6 +79,6 @@ async function pluginOneRule02(inputData, inputMetaData) {
 }
 
 export default {
-  pluginOneRule01,
-  pluginOneRule02
+  pluginOneCommand01,
+  pluginOneCommand02
 }

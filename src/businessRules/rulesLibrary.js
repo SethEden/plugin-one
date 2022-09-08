@@ -1,7 +1,7 @@
 /**
  * @file rulesLibrary.js
  * @module rulesLibrary
- * @description Contains all of the system defined business rules as a map between function names and function calls.
+ * @description Contains all of the plugin defined business rules as a map between function names and function calls.
  * @requires module:pluginOneRules
  * @requires module:plugin.business.constants
  * @requires module:plugin.constants
@@ -30,13 +30,13 @@ const namespacePrefix = plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cD
 /**
  * @function initPluginRulesLibrary
  * @description Initializes an object map of plugin business rules and plugin function calls and returns them.
- * @return {object} A JSON object that contains a list of business rules names and their associated function calls.
+ * @return {void}
  * @author Seth Hollingsead
  * @date 2022/09/06
  * @NOTE Please be aware that the Commands and BusinessRules data fields in the
  * D-data structure are going to display as empty when printing out the D-data structure even when using JSON.stringify().
  * This is because the functions cannot really be serialized in any way. It actually kind of makes sense,
- * but could be really confusing if yuo are struggling, trying to debug commands or business rules that do not appear to exsit.
+ * but could be really confusing if you are struggling, trying to debug commands or business rules that do not appear to exist.
  */
 const initPluginRulesLibrary = function() {
   let functionName = initPluginRulesLibrary.name;
@@ -49,7 +49,7 @@ const initPluginRulesLibrary = function() {
   // BEGIN pluginOne category
   // ***********************************************************************
   [plg_biz.cpluginOneRule01]: (inputData, inputMetaData) => pluginOneRules.pluginOneRule01(inputData, inputMetaData),
-  [plg_biz.cpluginOneRule02]: (inputData, inputMetaData) => pluginOneRules.pluginOneRule02(inputData, inputMetaData),
+  [plg_biz.cpluginOneRule02]: (inputData, inputMetaData) => pluginOneRules.pluginOneRule02(inputData, inputMetaData)
   // ***********************************************************************
   // END pluginOne category
   // ***********************************************************************

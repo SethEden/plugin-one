@@ -42,7 +42,25 @@ async function initData() {
   console.log(`END ${namespacePrefix}${functionName} function`);
 }
 
+/**
+ * @function loadConfigData
+ * @description Calls the haystacks tool to load the configuration data, parse it and return it as a JSON object.
+ * @return {void}
+ * @author Seth Hollingsead
+ * @date 2022/09/09
+ */
+async function loadConfigData() {
+  let functionName = loadConfigData.name;
+  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // TODO: Call haystacks to load the configuration data and store it in the D-data structure
+
+  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  console.log(`END ${namespacePrefix}${functionName} function`);
+}
+
 export default {
-  initData
+  initData,
+  loadConfigData
 }
 

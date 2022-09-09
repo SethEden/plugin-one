@@ -42,6 +42,25 @@ async function initializeData() {
   console.log(`END ${namespacePrefix}${functionName} function`);
 }
 
+/**
+ * @function loadConfigurationData
+ * @description Loads the plugin configuration data by calling the haystacks to
+ * load and parse the data from the specified path.
+ * @param {string} configPath The fully qualified path to the configuration folder with all of the configuration data.
+ * @return {void}
+ * @author Seth Hollingsead
+ * @date 2022/09/09
+ */
+async function loadConfigurationData(configPath) {
+  let functionName = loadConfigurationData.name;
+  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  await dataBroker.loadConfigData()
+  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  console.log(`END ${namespacePrefix}${functionName} function`);
+}
+
 export default {
-  initializeData
+  initializeData,
+  loadConfigurationData
 }

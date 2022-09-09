@@ -43,6 +43,7 @@ async function initPluginData() {
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   await chiefData.initializeData();
+  await chiefData.loadConfigurationData();
   await chiefRules.initBusinessRules();
   await chiefCommander.initCommands();
   console.log('contents of D are: ' + JSON.stringify(D));

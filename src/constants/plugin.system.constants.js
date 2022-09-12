@@ -14,7 +14,16 @@ import hayConst from '@haystacks/constants';
 const {bas, gen, num, wrd} = hayConst;
 
 // Constants Validation
+export const cresolvedConstantsPath_Plugin = wrd.cresolved + wrd.cConstants + wrd.cPath + bas.cUnderscore + wrd.cPlugin; // reslvedConstantsPath_Plugin
+export const cpluginBusinessConstantsValidation = wrd.cplugin + wrd.cBusiness + wrd.cConstants + wrd.cValidation; // pluginBusinessConstantsValidation
+export const cpluginCommandConstantsValidation = wrd.cplugin + wrd.cCommand + wrd.cConstants + wrd.cValidation; // pluginCommandConstantsValidation
+export const cpluginConstantsValidation = wrd.cplugin + wrd.cConstants + wrd.cValidation; // pluginConstantsValidation
+export const cpluginMessageConstantsValidation = wrd.cplugin + wrd.cMessage + wrd.cConstants + wrd.cValidation; // pluginMessageConstantsValidation
 export const cpluginSystemConstantsValidation = wrd.cplugin + wrd.cSystem + wrd.cConstants + wrd.cValidation; // pluginSystemConstantsValidation
 
 // Filenames
-export const cplugin_system_constants_js = wrd.cplugin + bas.cDot + wrd.csystem + bas.cDot + wrd.cconstants + genericConstantsValidation.cDotjs; // application.system.constants.js
+export const cplugin_business_constants_js = wrd.cplugin + bas.cDot + wrd.cbusiness + bas.cDot + wrd.cconstants + gen.cDotjs; // plugin.business.constants.js
+export const cplugin_command_constants_js = wrd.cplugin + bas.cDot + wrd.ccommand + bas.cDot + wrd.cconstants + gen.cDotjs; // plugin.command.constants.js
+export const cplugin_constants_js = wrd.cplugin + bas.cDot + wrd.cconstants + gen.cDotjs; // plugin.constants.js
+export const cplugin_message_constants_js = wrd.cplugin + bas.cDot + wrd.cmessage + bas.cDot + wrd.cconstants + gen.cDotjs; // plugin.message.constants.js
+export const cplugin_system_constants_js = wrd.cplugin + bas.cDot + wrd.csystem + bas.cDot + wrd.cconstants + gen.cDotjs; // plugin.system.constants.js

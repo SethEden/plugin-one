@@ -34,14 +34,19 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + b
 /**
  * @function initPluginData
  * @description Setup all of the plugin data and configuration settings.
+ * @param {object} configData All of the configuration data and paths that should be parsed as part of the setup process.
  * @return {object} All of the plugin data that should be returned to the rest of the framework.
  * @author Seth Hollingsead
  * @date 2022/09/06
  */
-async function initPluginData() {
+async function initPluginData(configData) {
   let functionName = initPluginData.name;
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cconfigDataIs + JSON.stringify(configData));
+  console.log(`configData is: ${JSON.stringify(configData)}`);
+  let pluginConfigPath = configData[cfg.cpluginConfigReferencePath];
+  
   await chiefData.initializeData();
   await chiefData.loadConfigurationData();
   await chiefRules.initBusinessRules();

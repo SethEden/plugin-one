@@ -5,6 +5,7 @@
  * It contains the entry point and all public functions for the plugin.
  * @requires module:plugin.constants
  * @requires module:warden
+ * @requires module:allPluginConstantsValidationMetadata
  * @requires module:pluginData
  * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
@@ -19,6 +20,7 @@
 // Internal imports
 import * as plg from './constants/plugin.constants.js';
 import warden from './controllers/warden.js';
+import allPlgCV from './resources/constantsValidation/allPluginConstantsValidationMetadata.js';
 import D from './structures/pluginData.js';
 // External imports
 import haystacks from '@haystacks/async';
@@ -57,21 +59,44 @@ async function initializePlugin() {
   let pluginConfig = {};
   if (NODE_ENV === wrd.cdevelopment) {
     pluginConfig = {
-
+      PluginName: plg.cpluginName,
+      pluginRootPath: rootPath,
+      pluginConfigResourcesPath: rootPath + plg.cFullDevResourcesPath,
+      pluginConfigReferencePath: rootPath + plg.cFullDevConfigurationPath,
+      pluginMetaDataPath: plg.cmetaDataDevPath,
+      pluginCommandAliasesPath: rootPath + plg.cFullDevCommandsPath,
+      pluginConstantsPath: rootPath + plg.cFullDevConstantsPath,
+      pluginWorkflowsPath: rootPath + plg.cFullDevWorkflowsPath,
+      pluginConstantsValidationData: allPlgCV.initializeAllClientConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
     }
   } else if (NODE_ENV === wrd.cproduction) {
     pluginConfig = {
-      
+      PluginName: plg.cpluginName,
+      pluginRootPath: rootPath,
+      pluginConfigResourcesPath: rootPath + plg.cFullProdResourcesPath,
+      pluginConfigReferencePath: rootPath + plg.cFullProdConfigurationPath,
+      pluginMetaDataPath: plg.cmetaDataProdPath,
+      pluginCommandAliasesPath: rootPath + plg.cFullProdCommandsPath,
+      pluginConstantsPath: rootPath + plg.cFullProdConstantsPath,
+      pluginWorkflowsPath: rootPath + plg.cFullProdWorkflowsPath,
+      pluginConstantsValidationData: allPlgCV.initializeAllClientConstantsValidationData(rootPath + plg.cFullProdConstantsPath),
     }
   } else {
     // WARNING: No .env file found! Going to default to the DEVELOPMENT ENVIRONMENT!
     console.log(msg.cApplicationWarningMessage1a + msg.cApplicationWarningMessage1b);
     pluginConfig = {
-      
+      PluginName: plg.cpluginName,
+      pluginRootPath: rootPath,
+      pluginConfigResourcesPath: rootPath + plg.cFullDevResourcesPath,
+      pluginConfigReferencePath: rootPath + plg.cFullDevConfigurationPath,
+      pluginMetaDataPath: plg.cmetaDataDevPath,
+      pluginCommandAliasesPath: rootPath + plg.cFullDevCommandsPath,
+      pluginConstantsPath: rootPath + plg.cFullDevConstantsPath,
+      pluginWorkflowsPath: rootPath + plg.cFullDevWorkflowsPath,
+      pluginConstantsValidationData: allPlgCV.initializeAllClientConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
     }
   }
-
-  await warden.initPluginData();
+  await warden.initPluginData(pluginConfig);
   let returnData = D; // Export all of the plugin data.
   console.log(`returnData is: ${JSON.stringify(returnData)}`);
   console.log(`END ${namespacePrefix}${functionName} function`);

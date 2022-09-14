@@ -17,7 +17,6 @@
 import pluginOneRules from './rules/pluginOneRules.js';
 import * as plg_biz from '../constants/plugin.business.constants.js';
 import * as plg from '../constants/plugin.constants.js';
-import D from '../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -30,7 +29,7 @@ const namespacePrefix = plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cD
 /**
  * @function initPluginRulesLibrary
  * @description Initializes an object map of plugin business rules and plugin function calls and returns them.
- * @return {void}
+ * @return {object} An object that contains an array of function objects that map function name to function call for all the business rules.
  * @author Seth Hollingsead
  * @date 2022/09/06
  * @NOTE Please be aware that the Commands and BusinessRules data fields in the
@@ -42,20 +41,24 @@ const initPluginRulesLibrary = function() {
   let functionName = initPluginRulesLibrary.name;
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  D[sys.cbusinessRules] = {};
-  D[sys.cbusinessRules] = {
-  // Business Rules
-  // ***********************************************************************
-  // BEGIN pluginOne category
-  // ***********************************************************************
-  [plg_biz.cpluginOneRule01]: (inputData, inputMetaData) => pluginOneRules.pluginOneRule01(inputData, inputMetaData),
-  [plg_biz.cpluginOneRule02]: (inputData, inputMetaData) => pluginOneRules.pluginOneRule02(inputData, inputMetaData)
-  // ***********************************************************************
-  // END pluginOne category
-  // ***********************************************************************
+  let returnData = {};
+  returnData[sys.cbusinessRules] = {};
+  returnData[sys.cbusinessRules] = {
+    // Business Rules
+    // ***********************************************************************
+    // BEGIN pluginOne category
+    // ***********************************************************************
+    [plg_biz.cpluginOneRule01]: (inputData, inputMetaData) => pluginOneRules.pluginOneRule01(inputData, inputMetaData),
+    [plg_biz.cpluginOneRule02]: (inputData, inputMetaData) => pluginOneRules.pluginOneRule02(inputData, inputMetaData)
+    // ***********************************************************************
+    // END pluginOne category
+    // ***********************************************************************
   }
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
   console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
 }
 
 export default {

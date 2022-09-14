@@ -29,7 +29,7 @@ import url from 'url';
 import dotenv from 'dotenv';
 import path from 'path';
 
-const {bas, msg, wrd} = hayConst;
+const {bas, msg, sys, wrd} = hayConst;
 let rootPath = '';
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // pluginOne.main.
@@ -67,7 +67,9 @@ async function initializePlugin() {
       pluginCommandAliasesPath: rootPath + plg.cFullDevCommandsPath,
       pluginConstantsPath: rootPath + plg.cFullDevConstantsPath,
       pluginWorkflowsPath: rootPath + plg.cFullDevWorkflowsPath,
-      pluginConstantsValidationData: allPlgCV.initializeAllClientConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
+      pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
+      pluginBusinessRules: {},
+      pluginCommands: {}
     }
   } else if (NODE_ENV === wrd.cproduction) {
     pluginConfig = {
@@ -79,7 +81,9 @@ async function initializePlugin() {
       pluginCommandAliasesPath: rootPath + plg.cFullProdCommandsPath,
       pluginConstantsPath: rootPath + plg.cFullProdConstantsPath,
       pluginWorkflowsPath: rootPath + plg.cFullProdWorkflowsPath,
-      pluginConstantsValidationData: allPlgCV.initializeAllClientConstantsValidationData(rootPath + plg.cFullProdConstantsPath),
+      pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullProdConstantsPath),
+      pluginBusinessRules: {},
+      pluginCommands: {}
     }
   } else {
     // WARNING: No .env file found! Going to default to the DEVELOPMENT ENVIRONMENT!
@@ -93,10 +97,14 @@ async function initializePlugin() {
       pluginCommandAliasesPath: rootPath + plg.cFullDevCommandsPath,
       pluginConstantsPath: rootPath + plg.cFullDevConstantsPath,
       pluginWorkflowsPath: rootPath + plg.cFullDevWorkflowsPath,
-      pluginConstantsValidationData: allPlgCV.initializeAllClientConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
+      pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
+      pluginBusinessRules: {},
+      pluginCommands: {}
     }
   }
-  await warden.initPluginData(pluginConfig);
+  pluginConfig[sys.cpluginBusinessRules] = await warden.initPluginRules();
+  pluginConfig[sys.cpluginCommands] = await warden.initPluginCommands();
+  await warden.initPluginSchema(pluginConfig);
   let returnData = D; // Export all of the plugin data.
   console.log(`returnData is: ${JSON.stringify(returnData)}`);
   console.log(`END ${namespacePrefix}${functionName} function`);

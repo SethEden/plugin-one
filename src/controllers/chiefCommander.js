@@ -27,7 +27,7 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot
  * @function initCommands
  * @description Initializes all of the commands for the plugin,
  * so they can be loaded by the framework and used by the application.
- * @return {void}
+ * @return {object} An object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2022/09/08
  */
@@ -35,9 +35,13 @@ async function initCommands() {
   let functionName = initCommands.name;
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  await commandBroker.bootStrapCommands();
+  let returnData = {};
+  returnData = await commandBroker.bootStrapCommands();
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
   console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
 }
 
 export default {

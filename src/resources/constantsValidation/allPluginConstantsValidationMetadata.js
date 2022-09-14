@@ -43,18 +43,20 @@ let baseFileName = path.basename(import.meta.url, path.extname(import.meta.url))
 let namespacePrefix = plg.cpluginName + bas.cDot + wrd.cresources + bas.cDot + wrd.cconstants + wrd.cValidation + bas.cDot + baseFileName + bas.cDot;
 
 /**
- * @function initializeAllClientConstantsValidationData
- * @description Initializes all of the client constants validation data so that it can be used to validate all of the constants.
+ * @function initializeAllPluginConstantsValidationData
+ * @description Initializes all of the plugin constants validation data so that it can be used to validate all of the constants.
  * @param {string} pluginConstantsPath The path to the plugin constants folder.
  * @return {object} An object that contains all of the data and metaData for plugin level constants validation.
  * @author Seth Hollingsead
  * @date 2022/09/12
  */
-async function initializeAllClientConstantsValidationData(pluginConstantsPath) {
-  let functionName = initializeAllClientConstantsValidationData.name;
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+async function initializeAllPluginConstantsValidationData(pluginConstantsPath) {
+  let functionName = initializeAllPluginConstantsValidationData.name;
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   // pluginConstantsPath is:
-  await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cpluginConstantsPathIs + pluginConstantsPath);
+  // await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cpluginConstantsPathIs + pluginConstantsPath);
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`pluginConstantsPath is: ${pluginConstantsPath}`);
 
   let allPluginConstantsValidationData = {};
   allPluginConstantsValidationData[sys.cConstantsValidationData] = {};
@@ -77,22 +79,27 @@ async function initializeAllClientConstantsValidationData(pluginConstantsPath) {
   allPluginConstantsValidationData[sys.cConstantsValidationData][plg_sys.cpluginSystemConstantsValidation] = plg_sys_cv.pluginSystemConstantsValidation;
 
   // Setup all the paths to the constants files.
-  let resolvedConstantsPath_PluginBusiness = path.resolve(constantsPath + bas.cForwardSlash + plg_sys.cplugin_business_constants_js);
-  let resolvedConstantsPath_PluginCommand = path.resolve(constantsPath + bas.cForwardSlash + plg_sys.cplugin_command_constants_js);
-  let resolvedConstantsPath_PluginConstant = path.resolve(constantPath + bas.cForwardSlash + plg_sys.cplugin_constants_js);
-  let resolvedConstantsPath_PluginMessage = path.resolve(constantPath + bas.cForwardSlash + plg_sys.cplugin_message_constants_js);
-  let resolvedConstantsPath_PluginSystem = path.resolve(constantPath + bas.cForwardSlash + plg_sys.cplugin_system_constants_js);
+  let resolvedConstantsPath_PluginBusiness = path.resolve(pluginConstantsPath + bas.cForwardSlash + plg_sys.cplugin_business_constants_js);
+  let resolvedConstantsPath_PluginCommand = path.resolve(pluginConstantsPath + bas.cForwardSlash + plg_sys.cplugin_command_constants_js);
+  let resolvedConstantsPath_PluginConstant = path.resolve(pluginConstantsPath + bas.cForwardSlash + plg_sys.cplugin_constants_js);
+  let resolvedConstantsPath_PluginMessage = path.resolve(pluginConstantsPath + bas.cForwardSlash + plg_sys.cplugin_message_constants_js);
+  let resolvedConstantsPath_PluginSystem = path.resolve(pluginConstantsPath + bas.cForwardSlash + plg_sys.cplugin_system_constants_js);
 
   // resolvedConstantsPath_PluginBusiness
-  await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cresolvedConstantsPath_PluginBusinessIs + resolvedConstantsPath_PluginBusiness);
+  console.log(plg_msg.cresolvedConstantsPath_PluginBusinessIs + resolvedConstantsPath_PluginBusiness);
+  // await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cresolvedConstantsPath_PluginBusinessIs + resolvedConstantsPath_PluginBusiness);
   // resolvedConstantsPath_PluginCommand
-  await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cresolvedConstantsPath_PluginCommandIs + resolvedConstantsPath_PluginCommand);
+  console.log(plg_msg.cresolvedConstantsPath_PluginCommandIs + resolvedConstantsPath_PluginCommand);
+  // await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cresolvedConstantsPath_PluginCommandIs + resolvedConstantsPath_PluginCommand);
   // resolvedConstantsPath_PluginConstant
-  await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cresolvedConstantsPath_PluginConstantIs + resolvedConstantsPath_PluginConstant);
+  console.log(plg_msg.cresolvedConstantsPath_PluginConstantIs + resolvedConstantsPath_PluginConstant);
+  // await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cresolvedConstantsPath_PluginConstantIs + resolvedConstantsPath_PluginConstant);
   // resolvedConstantsPath_PluginMessage
-  await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cresolvedConstantsPath_PluginMessageIs + resolvedConstantsPath_PluginMessage);
+  console.log(plg_msg.cresolvedConstantsPath_PluginMessageIs + resolvedConstantsPath_PluginMessage);
+  // await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cresolvedConstantsPath_PluginMessageIs + resolvedConstantsPath_PluginMessage);
   // resolvedConstantsPath_PluginSystem
-  await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cresolvedConstantsPath_PluginSystemIs + resolvedConstantsPath_PluginSystem);
+  console.log(plg_msg.cresolvedConstantsPath_PluginSystemIs + resolvedConstantsPath_PluginSystem);
+  // await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.cresolvedConstantsPath_PluginSystemIs + resolvedConstantsPath_PluginSystem);
 
   allPluginConstantsValidationData[sys.cConstantsValidationData][sys.cConstantsFilePaths][plg_sys.cpluginBusinessConstantsValidation] = resolvedConstantsPath_PluginBusiness;
   allPluginConstantsValidationData[sys.cConstantsValidationData][sys.cConstantsFilePaths][plg_sys.cpluginCommandConstantsValidation] = resolvedConstantsPath_PluginCommand;
@@ -141,11 +148,13 @@ async function initializeAllClientConstantsValidationData(pluginConstantsPath) {
   allPluginConstantsValidationData[sys.cConstantsValidationData][sys.cConstantsPrefix][plg_sys.cpluginSystemConstantsValidation] = gen.cplg + bas.cUnderscore + gen.csys + bas.cDot;
 
   // allPluginConstantsValidationData is:
-  await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.callPluginConstantsValidationDataIs + JSON.stringify(allPluginConstantsValidationData));
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  // await haystacks.consoleLog(namespacePrefix, functionName, plg_msg.callPluginConstantsValidationDataIs + JSON.stringify(allPluginConstantsValidationData));
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  console.log(plg_msg.callPluginConstantsValidationDataIs + JSON.stringify(allPluginConstantsValidationData));
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return allPluginConstantsValidationData;
 }
 
 export default {
-  initializeAllClientConstantsValidationData
+  initializeAllPluginConstantsValidationData
 };

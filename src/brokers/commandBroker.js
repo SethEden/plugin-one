@@ -31,6 +31,7 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + b
  * the rulesLibrary and migrates that data to the D-data structure.
  * This is important now, because this data structure is how the plugin functionality will be
  * imported and subsequently executed by the haystacks framework.
+ * @return {object} An object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2022/09/08
  */
@@ -38,9 +39,13 @@ async function bootStrapCommands() {
   let functionName = bootStrapCommands.name;
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  commands.initPluginCommandsLibrary();
+  let returnData = {};
+  returnData = await commands.initPluginCommandsLibrary();
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
   console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
 }
 
 export default {

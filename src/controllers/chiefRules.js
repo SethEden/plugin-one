@@ -27,7 +27,7 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot
  * @function initBusinessRules
  * @description Initializes all of the business rules for the plugin,
  * so they can be loaded by the framework and used by the application.
- * @return {void}
+ * @return {object} An object that contains an array of function objects that map function name to function call for all the business rules.
  * @author Seth Hollingsead
  * @date 2022/09/06
  */
@@ -35,9 +35,13 @@ async function initBusinessRules() {
   let functionName = initBusinessRules.name;
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  await ruleBroker.bootStrapBusinessRules();
+  let returnData = {};
+  returnData = await ruleBroker.bootStrapBusinessRules();
+  // await haystacks.consoleLog(nsmespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
   console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
 }
 
 export default {

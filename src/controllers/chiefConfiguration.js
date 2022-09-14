@@ -29,7 +29,7 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot
  * @function setupConfiguration
  * @description Sets up all of the plugin configuration data.
  * @param {string} pluginConfigPath The path of the configuration files for the plugin layer.
- * @return {void}
+ * @return {object} A JSON object that contains all of the configuration data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2022/09/12
  */
@@ -40,10 +40,15 @@ async function setupConfiguration(pluginConfigPath) {
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cpluginConfigPathIs + pluginConfigPath);
   let returnData = {};
-  returnData = haystacks.loadPluginConfigData(pluginConfigPath);
+  // returnData = haystacks.loadPluginConfigData(pluginConfigPath);
+  returnData = await chiefData.loadConfigurationData(pluginConfigPath);
   // await haystacks.consoleLog(namespacePrefix, functionName, 'loaded plugin config data is: ' + JSON.stringify(returnData));
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   console.log(`loaded plugin config data is: ${JSON.stringify(returnData)}`)
   console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
+
+export default {
+  setupConfiguration
+};

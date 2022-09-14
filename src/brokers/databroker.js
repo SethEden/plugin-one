@@ -45,18 +45,23 @@ async function initData() {
 /**
  * @function loadConfigData
  * @description Calls the haystacks tool to load the configuration data, parse it and return it as a JSON object.
- * @return {void}
+ * @return {object} A JSON object that contains all of the configuration data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2022/09/09
  */
-async function loadConfigData() {
+async function loadConfigData(configPath) {
   let functionName = loadConfigData.name;
   // await haystacks.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cconfigPathIs + configPath);
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // TODO: Call haystacks to load the configuration data and store it in the D-data structure
-
+  console.log(`configPath is: ${configPath}`);
+  let returnData = {};
+  returnData = haystacks.loadPluginConfigData(configPath);
+  // await haystacks.consoleLog(namespacePrexfix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
   // await haystacks.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
   console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
 }
 
 export default {

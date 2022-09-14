@@ -29,7 +29,7 @@ const namespacePrefix = plg.cpluginName + bas.cDot + sys.ccommandsBlob + bas.cDo
 /**
  * @function initPluginCommandsLibrary
  * @description Initializes an object map of plugin commands and plugin function calls and returns them.
- * @return {void}
+ * @return {object} An object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2022/09/08
  * @NOTE Please be aware that the Commands and BusinessRules data fields in the
@@ -41,8 +41,9 @@ const initPluginCommandsLibrary = function() {
   let functionName = initPluginCommandsLibrary.name;
   // await haystacks.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  D[wrd.ccommands] = {};
-  D[wrd.ccommands] = {
+  let returnData = {};
+  returnData[wrd.ccommands] = {};
+  returnData[wrd.ccommands] = {
     // Commands
     // ***********************************************************************
     // BEGIN pluginOne category
@@ -53,8 +54,11 @@ const initPluginCommandsLibrary = function() {
     // END pluginOne category
     // ***********************************************************************
   }
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
   // await haystacks.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
   console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
 }
 
 export default {

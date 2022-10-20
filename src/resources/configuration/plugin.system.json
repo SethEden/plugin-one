@@ -1,3 +1,4 @@
 {
-  "system.demoPluginSetting": false
+  "system.demoPluginSetting": false,
+  "system.debugSettings": true
 }

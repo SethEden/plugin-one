@@ -56,7 +56,7 @@ async function loadConfigData(configPath) {
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   console.log(`configPath is: ${configPath}`);
   let returnData = {};
-  returnData = haystacks.loadPluginConfigData(configPath);
+  returnData = await haystacks.loadPluginResourceData(wrd.cconfiguration, configPath);
   // await haystacks.consoleLog(namespacePrexfix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
   // await haystacks.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   console.log(`returnData is: ${JSON.stringify(returnData)}`);

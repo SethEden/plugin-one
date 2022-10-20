@@ -56,6 +56,7 @@ async function initializePlugin() {
   rootPathArray.pop(); // remove any bin or src folder from the path.
   rootPath = rootPathArray.join(bas.cBackSlash);
   console.log('rootPath is: ' + rootPath);
+  // await haystacks.initFramework({enablePluginLoader: false});
   let pluginConfig = {};
   if (NODE_ENV === wrd.cdevelopment) {
     pluginConfig = {
@@ -69,7 +70,8 @@ async function initializePlugin() {
       pluginWorkflowsPath: rootPath + plg.cFullDevWorkflowsPath,
       pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
       pluginBusinessRules: {},
-      pluginCommands: {}
+      pluginCommands: {},
+      pluginHaystacks: haystacks
     }
   } else if (NODE_ENV === wrd.cproduction) {
     pluginConfig = {
@@ -83,7 +85,8 @@ async function initializePlugin() {
       pluginWorkflowsPath: rootPath + plg.cFullProdWorkflowsPath,
       pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullProdConstantsPath),
       pluginBusinessRules: {},
-      pluginCommands: {}
+      pluginCommands: {},
+      pluginHaystacks: haystacks
     }
   } else {
     // WARNING: No .env file found! Going to default to the DEVELOPMENT ENVIRONMENT!
@@ -99,7 +102,8 @@ async function initializePlugin() {
       pluginWorkflowsPath: rootPath + plg.cFullDevWorkflowsPath,
       pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
       pluginBusinessRules: {},
-      pluginCommands: {}
+      pluginCommands: {},
+      pluginHaystacks: haystacks
     }
   }
   pluginConfig[sys.cpluginBusinessRules] = await warden.initPluginRules();

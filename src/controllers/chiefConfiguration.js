@@ -33,7 +33,7 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot
  * @author Seth Hollingsead
  * @date 2022/09/12
  */
-async function setupConfiguration(pluginConfigPath) {
+async function setupConfiguration(pluginConfigPath, systemConfigData) {
   let functionName = setupConfiguration.name;
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   console.log(`pluginConfigPath is: ${pluginConfigPath}`);

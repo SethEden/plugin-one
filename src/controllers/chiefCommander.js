@@ -4,6 +4,7 @@
  * @description Contains all of the top-level functions to manage the commands for the plugin.
  * @requires module:commandBroker
  * @requires module:plugin.constants
+ * @requires module:chiefData
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
@@ -14,9 +15,11 @@
 // Internal imports
 import commandBroker from '../brokers/commandBroker.js';
 import * as plg from '../constants/plugin.constants.js';
+import chiefData from './chiefData.js'
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
+
 
 const {bas, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
@@ -44,6 +47,30 @@ async function initCommands() {
   return returnData;
 }
 
+/**
+ * @function setupCommandAliases
+ * @description Sets up all the plugin command aliases data.
+ * @param {string} pluginCommandAliasesPath The path of the command aliases files for the plugin layer.
+ * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from the specified path.
+ * @author Seth Hollingsead
+ * @date 2022/09/21 
+ */
+async function setupCommandAliases(pluginCommandAliasesPath) {
+  let functionName = setupCommandAliases.name;
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cpluginComandAliasesPathIs + pluginCommandAliasesPath);
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`pluginCommandAliasesPath is: ${pluginCommandAliasesPath}`);  
+  let returnData = {};
+  returnData = await chiefData.loadCommandAliasesData(pluginCommandAliasesPath);
+  // await haystacks.consoleLog(namespacePrefix, functionName, `loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  console.log(`loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
+}
+
 export default {
-  initCommands
+  initCommands,
+  setupCommandAliases
 }

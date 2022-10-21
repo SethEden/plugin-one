@@ -46,7 +46,7 @@ async function initializeData() {
  * @function loadConfigurationData
  * @description Loads the plugin configuration data by calling the haystacks to
  * load and parse the data from the specified path.
- * @param {string} configPath The fully qualified path to the configuration folder with all of the configuration data.
+ * @param {string} configPath The fully qualified path to the configuration folder with all of the configuration data for the plugin.
  * @return {object} A JSON object that contains all of the configuration data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2022/09/09
@@ -66,7 +66,57 @@ async function loadConfigurationData(configPath) {
   return returnData;
 }
 
+/**
+ * @function loadCommandAliasesData
+ * @description Loads the plugin command aliases data by calling the haystacks to
+ * load and parse the data from the specified path.
+ * @param {string} aliasesPath The fully qualified path to the command aliases folder with all of the command aliases data for the plugin.
+ * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from the specified path.
+ * @author Seth Hollingsead
+ * @date 2022/10/21
+ */
+async function loadCommandAliasesData(aliasesPath) {
+  let functionName = loadCommandAliasesData.name;
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.caliasesPathIs + aliasesPath);
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`aliasesPath is: ${aliasesPath}`);
+  let returnData = {};
+  returnData = await dataBroker.loadCommandAliasesData(aliasesPath);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
+}
+
+/**
+ * @function loadWorkflowsData
+ * @description Loads the plugin workflows data by calling the haystacks to
+ * oad and parse the data from the specified path.
+ * @param {string} workflowsPath The fully qualified path to the comand aliases folder with all of the workflows data for the plugin.
+ * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from the specified path.
+ * @author Seth Hollingsead
+ * @date 2022/10/21
+ */
+async function loadWorkflowsData(workflowsPath) {
+  let functionName = loadWorkflowsData.name;
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cworkflowsPathIs + workflowsPath);
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`workflowsPath is: ${workflowsPath}`);
+  let returnData = {};
+  returnData = await dataBroker.loadWorkflowsData(workflowsPath);
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
+}
+
 export default {
   initializeData,
-  loadConfigurationData
+  loadConfigurationData,
+  loadCommandAliasesData,
+  loadWorkflowsData
 }

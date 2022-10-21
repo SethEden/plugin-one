@@ -8,6 +8,7 @@
  * @requires module:chiefConfiguration
  * @requires module:chiefData
  * @requires module:chiefRules
+ * @requires module:chiefWorkflow
  * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
@@ -21,7 +22,8 @@ import * as plg from '../constants/plugin.constants.js';
 import chiefCommander from './chiefCommander.js';
 import chiefConfiguration from './chiefConfiguration.js';
 import chiefData from './chiefData.js'
-import chiefRules from '../controllers/chiefRules.js';
+import chiefRules from './chiefRules.js';
+import chiefWorkflow from './chiefWorkflow.js';
 import D from '../structures/pluginData.js';
 // External imports
 import haystacks from '@haystacks/async';
@@ -87,13 +89,32 @@ async function initPluginSchema(configData) {
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cconfigDataIs + JSON.stringify(configData));
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   console.log(`configData is: ${JSON.stringify(configData)}`);
-  let pluginConfigPath = configData[cfg.cpluginConfigReferencePath];
-  console.log('pluginConfigPath is: ' + JSON.stringify(pluginConfigPath));
-  let pluginConfigData = await chiefConfiguration.setupConfiguration(pluginConfigPath);
   await chiefData.initializeData();
-  await chiefData.loadConfigurationData();
-  // await chiefRules.initBusinessRules();
-  // await chiefCommander.initCommands();
+  D[wrd.cdata] = configData; // Persist all of the plugin data we have so far.
+  let pluginConfigPath = configData[cfg.cpluginConfigReferencePath];
+  let pluginCommandAliasesPath = configData[cfg.cpluginCommandAliasesPath];
+  let pluginWorkflowsPath = configData[cfg.cpluginWorkflowsPath];
+  console.log('pluginConfigPath is: ' + JSON.stringify(pluginConfigPath));
+  console.log('pluginCommandAliasesPath is: ' + JSON.stringify(pluginCommandAliasesPath));
+  console.log('pluginWorkflowsPath is: ' + JSON.stringify(pluginWorkflowsPath));
+
+  // Load the configuration data for the plugin.
+  let pluginConfigData = await chiefConfiguration.setupConfiguration(pluginConfigPath);
+  console.log('pluginConfigData is: ' + JSON.stringify(pluginConfigData));
+  D[wrd.cdata][wrd.cconfiguration] = {};
+  D[wrd.cdata][wrd.cconfiguration] = pluginConfigData;
+
+  // Load the command aliases data for the plugin.
+  let pluginCommandAliasesData = await chiefCommander.setupCommandAliases(pluginCommandAliasesPath);
+  console.log('pluginCommandAliasesData is: ' + JSON.stringify(pluginCommandAliasesData));
+  D[wrd.cdata][wrd.cCommands + wrd.cAliases] = {};
+  D[wrd.cdata][wrd.cCommands + wrd.cAliases] = pluginCommandAliasesData;
+
+  // Load the workflows data for the plugin.
+  let pluginWorkflowsData = await chiefWorkflow.setupWorkflows(pluginWorkflowsPath);
+  console.log('pluginWorkflowsData is: ' + JSON.stringify(pluginWorkflowsData));
+  D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = {};
+  D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = pluginWorkflowsData;
   console.log('contents of D are: ' + JSON.stringify(D));
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   console.log(`END ${namespacePrefix}${functionName} function`);

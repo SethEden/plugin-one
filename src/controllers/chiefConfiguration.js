@@ -33,14 +33,13 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot
  * @author Seth Hollingsead
  * @date 2022/09/12
  */
-async function setupConfiguration(pluginConfigPath, systemConfigData) {
+async function setupConfiguration(pluginConfigPath) {
   let functionName = setupConfiguration.name;
   console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   console.log(`pluginConfigPath is: ${pluginConfigPath}`);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cpluginConfigPathIs + pluginConfigPath);
   let returnData = {};
-  // returnData = haystacks.loadPluginConfigData(pluginConfigPath);
   returnData = await chiefData.loadConfigurationData(pluginConfigPath);
   // await haystacks.consoleLog(namespacePrefix, functionName, 'loaded plugin config data is: ' + JSON.stringify(returnData));
   // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);

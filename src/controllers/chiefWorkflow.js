@@ -32,17 +32,13 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot
  * @date 2022/10/21
  */
 async function setupWorkflows(pluginWorkflowsPath) {
-  let functionName = setupWorkflows.name;
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cworkflowsPathIs + workflowsPath);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`pluginWorkflowsPath is: ${pluginWorkflowsPath}`);
+  // let functionName = setupWorkflows.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`pluginWorkflowsPath is: ${pluginWorkflowsPath}`);
   let returnData = {};
   returnData = await chiefData.loadWorkflowsData(pluginWorkflowsPath);
-  // await haystacks.consoleLog(namespacePrefix, functionName, `loaded plugin workflows data is: ${JSON.stringify(returnData)}`);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  console.log(`loaded plugn command aliases data is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

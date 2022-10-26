@@ -34,12 +34,10 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + b
  * @date 2022/09/08
  */
 async function initData() {
-  let functionName = initData.name;
-  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // let functionName = initData.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   D.data = {}; // Make sure it's initialized, should have been done when we called import above.
-  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
 }
 
 /**
@@ -50,17 +48,13 @@ async function initData() {
  * @date 2022/09/09
  */
 async function loadConfigData(configPath) {
-  let functionName = loadConfigData.name;
-  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cconfigPathIs + configPath);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`configPath is: ${configPath}`);
+  // let functionName = loadConfigData.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`configPath is: ${configPath}`);
   let returnData = {};
   returnData = await haystacks.loadPluginResourceData(wrd.cconfiguration, configPath);
-  // await haystacks.consoleLog(namespacePrexfix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -74,17 +68,13 @@ async function loadConfigData(configPath) {
  * @date 2022/10/21
  */
  async function loadCommandAliasesData(aliasesPath) {
-  let functionName = loadCommandAliasesData.name;
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.caliasesPathIs + aliasesPath);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`aliasesPath is: ${aliasesPath}`);
+  // let functionName = loadCommandAliasesData.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`aliasesPath is: ${aliasesPath}`);
   let returnData = {};
   returnData = await haystacks.loadPluginResourceData(wrd.ccommand + wrd.cAliases, aliasesPath);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -98,17 +88,13 @@ async function loadConfigData(configPath) {
  * @date 2022/10/21
  */
  async function loadWorkflowsData(workflowsPath) {
-  let functionName = loadWorkflowsData.name;
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cworkflowsPathIs + workflowsPath);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`workflowsPath is: ${workflowsPath}`);
+  // let functionName = loadWorkflowsData.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`workflowsPath is: ${workflowsPath}`);
   let returnData = {};
   returnData = await haystacks.loadPluginResourceData(wrd.cworkflows, workflowsPath);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

@@ -38,9 +38,8 @@ const namespacePrefix = plg.cpluginName + bas.cDot + sys.ccommandsBlob + bas.cDo
  * ut could be really confusing if you are struggling, trying to debug commands or business rules that do not appear to exist.
  */
 const initPluginCommandsLibrary = function() {
-  let functionName = initPluginCommandsLibrary.name;
-  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // let functionName = initPluginCommandsLibrary.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   let returnData = {};
   returnData[wrd.ccommands] = {};
   returnData[wrd.ccommands] = {
@@ -54,10 +53,8 @@ const initPluginCommandsLibrary = function() {
     // END pluginOne category
     // ***********************************************************************
   }
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

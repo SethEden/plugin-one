@@ -32,15 +32,12 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot
  * @date 2022/09/06
  */
 async function initBusinessRules() {
-  let functionName = initBusinessRules.name;
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // let functionName = initBusinessRules.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   let returnData = {};
   returnData = await ruleBroker.bootStrapBusinessRules();
-  // await haystacks.consoleLog(nsmespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

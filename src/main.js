@@ -49,14 +49,12 @@ const {NODE_ENV} = process.env;
  */
 async function initializePlugin() {
   let functionName = initializePlugin.name;
-  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   rootPath = url.fileURLToPath(path.dirname(import.meta.url));
   let rootPathArray = rootPath.split(bas.cBackSlash);
   rootPathArray.pop(); // remove any bin or src folder from the path.
   rootPath = rootPathArray.join(bas.cBackSlash);
-  console.log('rootPath is: ' + rootPath);
-  // await haystacks.initFramework({enablePluginLoader: false});
+  // console.log('rootPath is: ' + rootPath);
   let pluginConfig = {};
   if (NODE_ENV === wrd.cdevelopment) {
     pluginConfig = {
@@ -110,10 +108,8 @@ async function initializePlugin() {
   pluginConfig[sys.cpluginCommands] = await warden.initPluginCommands();
   await warden.initPluginSchema(pluginConfig);
   let returnData = D; // Export all of the plugin data.
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
-  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cretrunDataIs + returnData);
-  // await haystacks.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 };
 

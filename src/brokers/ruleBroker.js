@@ -36,15 +36,12 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + b
  * @date 2022/09/06
  */
 async function bootStrapBusinessRules() {
-  let functionName = bootStrapBusinessRules.name;
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // let functionName = bootStrapBusinessRules.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   let returnData = {};
   returnData = await rules.initPluginRulesLibrary();
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

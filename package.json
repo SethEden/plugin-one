@@ -24,7 +24,7 @@
   "homepage": "https://github.com/SethEden/PluginOne#readme",
   "dependencies": {
     "@haystacks/async": "0.1.4",
-    "@haystacks/constants": "0.1.3",
+    "@haystacks/constants": "0.1.4",
     "dotenv": "^16.0.0"
   }
 }

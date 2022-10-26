@@ -13,7 +13,7 @@ import hayConst from '@haystacks/constants';
 const {num, wrd} = hayConst;
 
 // ********************************
-// plugnOneCommands commands in order
+// pluginOneCommands commands in order
 // ********************************
 export const cpluginOneCommand01 = wrd.cplugin + num.cOne + wrd.cCommand + num.c01; // pluginOneCommand01
 export const cpluginOneCommand02 = wrd.cplugin + num.cOne + wrd.cCommand + num.c02; // pluginOneCommand02

@@ -3,12 +3,12 @@
     <commandsBlob>
       <commands>
         <pluginOneCommands>
-          <Workflow Name="pluginOneCommandsEnable" Value="changeConfigSetting debugSetting.pluginOne.commandsBlob.commands.pluginOneCommands true"/>
-          <Workflow Name="pluginOneCommandsDisable" Value="changeConfigSetting debugSetting.pluginOne.commandsBlob.commands.pluginOneCommands false"/>
-          <Workflow Name="pluginOneCommand01Enable" Value="changeConfigSetting debugSetting.pluginOne.commandsBlob.commands.pluginOneCommands.pluginOneCommand01 true"/>
-          <Workflow Name="pluginOneCommand01Disable" Value="changeConfigSetting debugSetting.pluginOne.commandsBlob.commands.pluginOneCommands.pluginOneCommand01 false"/>
-          <Workflow Name="pluginOneCommand02Enable" Value="changeConfigSetting debugSetting.pluginOne.commandsBlob.commands.pluginOneCommands.pluginOneCommand02 true"/>
-          <Workflow Name="pluginOneCommand02Disable" Value="changeConfigSetting debugSetting.pluginOne.commandsBlob.commands.pluginOneCommands.pluginOneCommand02 false"/>
+          <Workflow Name="pluginOneCommandsEnable" Value="changeConfigSetting debugSetting.plugins.plugin-one.commandsBlob.commands.pluginOneCommands true"/>
+          <Workflow Name="pluginOneCommandsDisable" Value="changeConfigSetting debugSetting.plugins.plugin-one.commandsBlob.commands.pluginOneCommands false"/>
+          <Workflow Name="pluginOneCommand01Enable" Value="changeConfigSetting debugSetting.plugins.plugin-one.commandsBlob.commands.pluginOneCommands.pluginOneCommand01 true"/>
+          <Workflow Name="pluginOneCommand01Disable" Value="changeConfigSetting debugSetting.plugins.plugin-one.commandsBlob.commands.pluginOneCommands.pluginOneCommand01 false"/>
+          <Workflow Name="pluginOneCommand02Enable" Value="changeConfigSetting debugSetting.plugins.plugin-one.commandsBlob.commands.pluginOneCommands.pluginOneCommand02 true"/>
+          <Workflow Name="pluginOneCommand02Disable" Value="changeConfigSetting debugSetting.plugins.plugin-one.commandsBlob.commands.pluginOneCommands.pluginOneCommand02 false"/>
         </pluginOneCommands>
       </commands>
     </commandsBlob>

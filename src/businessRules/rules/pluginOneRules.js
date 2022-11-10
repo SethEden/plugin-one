@@ -20,8 +20,8 @@ import path from 'path';
 
 const {bas, msg, num, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// pluginOne.businessRules.rules.pluginOneRules.
-const namespacePrefix = plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cDot +
+// plugins.plugin-one.businessRules.rules.pluginOneRules.
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cDot +
   wrd.crules + bas.cDot + baseFileName + bas.cDot;
 
 /**

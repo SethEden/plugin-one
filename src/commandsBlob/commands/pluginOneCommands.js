@@ -18,7 +18,7 @@ import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
-const {bas, num, sys, wrd} = hayConst;
+const {bas, msg, num, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // pluginOne.commandsBlob.commands.pluginOneCommands.
 const namespacePrefix = plg.cpluginName + bas.cDot + sys.cCommandsBlob + bas.cDot +
@@ -36,18 +36,19 @@ const namespacePrefix = plg.cpluginName + bas.cDot + sys.cCommandsBlob + bas.cDo
  */
 async function pluginOneCommand01(inputData, inputMetaData) {
   let functionName = pluginOneCommand01.name;
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`inputData is: ${inputData}`);
-  console.log(`inputMetaData is: ${inputMetaData}`);
+  await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
+  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`inputData is: ${inputData}`);
+  // console.log(`inputMetaData is: ${inputMetaData}`);
   let returnData = '';
   returnData = wrd.cplugin + num.cOne + wrd.cCommand + num.c01;
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  console.log(`returnData is: ${returnData}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(namespacePrefix + returnData);
+  await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
+  await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  // console.log(`returnData is: ${returnData}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -63,18 +64,19 @@ async function pluginOneCommand01(inputData, inputMetaData) {
  */
  async function pluginOneCommand02(inputData, inputMetaData) {
   let functionName = pluginOneCommand02.name;
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`inputData is: ${inputData}`);
-  console.log(`inputMetaData is: ${inputMetaData}`);
+  await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
+  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`inputData is: ${inputData}`);
+  // console.log(`inputMetaData is: ${inputMetaData}`);
   let returnData = '';
   returnData = wrd.cplugin + num.cOne + wrd.cCommand + num.c02;
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
-  // await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  console.log(`returnData is: ${returnData}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(namespacePrefix + returnData);
+  await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
+  await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
+  // console.log(`returnData is: ${returnData}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

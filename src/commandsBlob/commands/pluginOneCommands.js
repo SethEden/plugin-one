@@ -21,8 +21,8 @@ import path from 'path';
 const {bas, msg, num, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // plugins.plugin-one.commandsBlob.commands.pluginOneCommands.
-const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + sys.cCommandsBlob + bas.cDot +
-  wrd.cCommands + bas.cDot + baseFileName + bas.cDot;
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + sys.ccommandsBlob + bas.cDot +
+  wrd.ccommands + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function pluginOneCommand01

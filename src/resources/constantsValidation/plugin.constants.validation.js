@@ -20,7 +20,7 @@ import * as plg from '../../constants/plugin.constants.js';
  */
 export const pluginConstantsValidation = [
   // Plugin constants
-  {Name: 'cpluginName', Actual: plg.cpluginName, Expected: 'pluginOne'},
+  {Name: 'cpluginName', Actual: plg.cpluginName, Expected: 'plugin-one'},
   {Name: 'cPluginDevPath', Actual: plg.cPluginDevPath, Expected: '/src/'},
   {Name: 'cPluginProdPath', Actual: plg.cPluginProdPath, Expected: '/bin/'},
   {Name: 'cResourcesCommonPath', Actual: plg.cResourcesCommonPath, Expected: 'resources/'},
@@ -32,9 +32,9 @@ export const pluginConstantsValidation = [
   // Full Dev paths
   {Name: 'cFullDevResourcesPath', Actual: plg.cFullDevResourcesPath, Expected: '/src/resources/'},
   {Name: 'cFullDevCommandsPath', Actual: plg.cFullDevCommandsPath, Expected: '/src/resources/commands/'},
-  {Name: 'cFullDevConstantsPath', Actual: plg.cFullDevConstantsPath, Expected: '/src/constants'},
+  {Name: 'cFullDevConstantsPath', Actual: plg.cFullDevConstantsPath, Expected: '/src/constants/'},
   {Name: 'cFullDevConfigurationPath', Actual: plg.cFullDevConfigurationPath, Expected: '/src/resources/configuration/'},
-  {Name: 'cFullDevWorkflowsPath', Actual: plg.cFullDevWorkflowsPath, Expected: '/src/resources/workflows'},
+  {Name: 'cFullDevWorkflowsPath', Actual: plg.cFullDevWorkflowsPath, Expected: '/src/resources/workflows/'},
   {Name: 'cmetaDataDevPath', Actual: plg.cmetaDataDevPath, Expected: '/src/resources/metaData.json'},
 
   // Full Prod paths

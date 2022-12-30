@@ -20,7 +20,7 @@ import * as plg_sys from '../../constants/plugin.system.constants.js';
  */
 export const pluginSystemConstantsValidation = [
   // Constants Validation
-  {Name: 'cresolvedConstantsPath_Plugin', Actual: plg_sys.cresolvedConstantsPath_Plugin, Expected: 'reslvedConstantsPath_Plugin'},
+  {Name: 'cresolvedConstantsPath_Plugin', Actual: plg_sys.cresolvedConstantsPath_Plugin, Expected: 'resolvedConstantsPath_Plugin'},
   {Name: 'cpluginBusinessConstantsValidation', Actual: plg_sys.cpluginBusinessConstantsValidation, Expected: 'pluginBusinessConstantsValidation'},
   {Name: 'cpluginCommandConstantsValidation', Actual: plg_sys.cpluginCommandConstantsValidation, Expected: 'pluginCommandConstantsValidation'},
   {Name: 'cpluginConstantsValidation', Actual: plg_sys.cpluginConstantsValidation, Expected: 'pluginConstantsValidation'},
@@ -32,5 +32,5 @@ export const pluginSystemConstantsValidation = [
   {Name: 'cplugin_command_constants_js', Actual: plg_sys.cplugin_command_constants_js, Expected: 'plugin.command.constants.js'},
   {Name: 'cplugin_constants_js', Actual: plg_sys.cplugin_constants_js, Expected: 'plugin.constants.js'},
   {Name: 'cplugin_message_constants_js', Actual: plg_sys.cplugin_message_constants_js, Expected: 'plugin.message.constants.js'},
-  {Name: 'cplugin_system_constants_js', Actual: plg_sys.cplugin_system_constants_js, Expected: 'application.system.constants.js'}
+  {Name: 'cplugin_system_constants_js', Actual: plg_sys.cplugin_system_constants_js, Expected: 'plugin.system.constants.js'}
 ];

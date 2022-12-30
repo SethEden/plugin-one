@@ -32,8 +32,8 @@ import path from 'path';
 const {bas, msg, sys, wrd} = hayConst;
 let rootPath = '';
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// pluginOne.main.
-const namespacePrefix = plg.cpluginName + bas.cDot + wrd.cmain + bas.cDot;
+// plugins.plugin-one.main.
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cmain + bas.cDot;
 dotenv.config();
 const {NODE_ENV} = process.env;
 

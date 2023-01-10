@@ -23,8 +23,8 @@ import path from 'path';
 
 const {bas, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// pluginOne.controllers.chiefCommander.
-const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
+// plugins.plugin-one.controllers.chiefCommander.
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function initCommands
@@ -35,12 +35,12 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot
  * @date 2022/09/08
  */
 async function initCommands() {
-  // let functionName = initCommands.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = initCommands.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   let returnData = {};
   returnData = await commandBroker.bootStrapCommands();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -53,13 +53,13 @@ async function initCommands() {
  * @date 2022/09/21 
  */
 async function setupCommandAliases(pluginCommandAliasesPath) {
-  // let functionName = setupCommandAliases.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`pluginCommandAliasesPath is: ${pluginCommandAliasesPath}`);  
+  let functionName = setupCommandAliases.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`pluginCommandAliasesPath is: ${pluginCommandAliasesPath}`);  
   let returnData = {};
   returnData = await chiefData.loadCommandAliasesData(pluginCommandAliasesPath);
-  // console.log(`loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

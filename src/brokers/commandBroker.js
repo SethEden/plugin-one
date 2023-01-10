@@ -16,14 +16,13 @@
 import commands from '../commandsBlob/commandsLibrary.js';
 import * as plg from '../constants/plugin.constants.js';
 // External imports
-import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
 const {bas, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// pluginOne.brokers.commandBroker.
-const namespacePrefix = plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + baseFileName + bas.cDot;
+// plugins.plugin-one.brokers.commandBroker.
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function bootStrapCommands
@@ -36,12 +35,12 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + b
  * @date 2022/09/08
  */
 async function bootStrapCommands() {
-  // let functionName = bootStrapCommands.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = bootStrapCommands.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   let returnData = {};
   returnData = await commands.initPluginCommandsLibrary();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

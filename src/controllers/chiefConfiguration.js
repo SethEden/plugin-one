@@ -22,8 +22,8 @@ import path from 'path';
 
 const {bas, biz, cfg, msg, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// pluginOne.controllers.chiefConfiguration.
-const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
+// plugins.plugin-one.controllers.chiefConfiguration.
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function setupConfiguration
@@ -34,13 +34,13 @@ const namespacePrefix = plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot
  * @date 2022/09/12
  */
 async function setupConfiguration(pluginConfigPath) {
-  // let functionName = setupConfiguration.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`pluginConfigPath is: ${pluginConfigPath}`);
+  let functionName = setupConfiguration.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`pluginConfigPath is: ${pluginConfigPath}`);
   let returnData = {};
   returnData = await chiefData.loadConfigurationData(pluginConfigPath);
-  // console.log(`loaded plugin config data is: ${JSON.stringify(returnData)}`)
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`loaded plugin config data is: ${JSON.stringify(returnData)}`)
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

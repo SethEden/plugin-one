@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><PluginWorkflows>
+  <debug>
+    <businessRules>
+      <rules>
+        <pluginOneRules>
+          <Workflow Name="pluginOneRulesEnable" Value="changeConfigSetting debugSetting.plugins.plugin-one.businessRules.rules.pluginOneRules true"/>
+          <Workflow Name="pluginOneRulesDisable" Value="changeConfigSetting debugSetting.plugins.plugin-one.businessRules.rules.pluginOneRules false"/>
+          <Workflow Name="pluginOneRule01Enable" Value="changeConfigSetting debugSetting.plugins.plugin-one.businessRules.rules.pluginOneRules.pluginOneRule01 true"/>
+          <Workflow Name="pluginOneRule01Disable" Value="changeConfigSetting debugSetting.plugins.plugin-one.businessRules.rules.pluginOneRules.pluginOneRule01 false"/>
+          <Workflow Name="pluginOneRule02Enable" Value="changeConfigSetting debugSetting.plugins.plugin-one.businessRules.rules.pluginOneRules.pluginOneRule02 true"/>
+          <Workflow Name="pluginOneRule02Disable" Value="changeConfigSetting debugSetting.plugins.plugin-one.businessRules.rules.pluginOneRules.pluginOneRule02 false"/>
+        </pluginOneRules>
+      </rules>
+    </businessRules>
+  </debug>
+</PluginWorkflows>

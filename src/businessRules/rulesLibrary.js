@@ -21,10 +21,10 @@ import * as plg from '../constants/plugin.constants.js';
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
-const {bas, msg, sys} = hayConst;
+const {bas, msg, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// pluginOne.businessRules.rulesLibrary.
-const namespacePrefix = plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cDot + baseFileName + bas.cDot;
+// plugins.plugin-one.businessRules.rulesLibrary.
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function initPluginRulesLibrary

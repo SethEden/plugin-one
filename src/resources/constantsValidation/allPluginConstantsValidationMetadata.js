@@ -39,8 +39,8 @@ import path from 'path';
 
 const {bas, cfg, gen, msg, sys, wrd} = hayConst;
 let baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// pluginOne.resources.constantsValidation.allPluginConstantsValidationMetadata.
-let namespacePrefix = plg.cpluginName + bas.cDot + wrd.cresources + bas.cDot + wrd.cconstants + wrd.cValidation + bas.cDot + baseFileName + bas.cDot;
+// plugins.plugin-one.resources.constantsValidation.allPluginConstantsValidationMetadata.
+let namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cresources + bas.cDot + wrd.cconstants + wrd.cValidation + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function initializeAllPluginConstantsValidationData

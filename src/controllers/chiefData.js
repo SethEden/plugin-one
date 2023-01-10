@@ -34,10 +34,10 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/08
  */
 async function initializeData() {
-  // let functionName = initializeData.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = initializeData.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   await dataBroker.initData();
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
 }
 
 /**
@@ -50,13 +50,13 @@ async function initializeData() {
  * @date 2022/09/09
  */
 async function loadConfigurationData(configPath) {
-  // let functionName = loadConfigurationData.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`configPath is: ${configPath}`);
+  let functionName = loadConfigurationData.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`configPath is: ${configPath}`);
   let returnData = {};
   returnData = await dataBroker.loadConfigData(configPath);
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -70,13 +70,13 @@ async function loadConfigurationData(configPath) {
  * @date 2022/10/21
  */
 async function loadCommandAliasesData(aliasesPath) {
-  // let functionName = loadCommandAliasesData.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`aliasesPath is: ${aliasesPath}`);
+  let functionName = loadCommandAliasesData.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`aliasesPath is: ${aliasesPath}`);
   let returnData = {};
   returnData = await dataBroker.loadCommandAliasesData(aliasesPath);
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -90,13 +90,13 @@ async function loadCommandAliasesData(aliasesPath) {
  * @date 2022/10/21
  */
 async function loadWorkflowsData(workflowsPath) {
-  // let functionName = loadWorkflowsData.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`workflowsPath is: ${workflowsPath}`);
+  let functionName = loadWorkflowsData.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`workflowsPath is: ${workflowsPath}`);
   let returnData = {};
   returnData = await dataBroker.loadWorkflowsData(workflowsPath);
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

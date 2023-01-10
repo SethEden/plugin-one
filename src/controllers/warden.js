@@ -26,7 +26,6 @@ import chiefRules from './chiefRules.js';
 import chiefWorkflow from './chiefWorkflow.js';
 import D from '../structures/pluginData.js';
 // External imports
-import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
@@ -43,12 +42,12 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/13
  */
 async function initPluginRules() {
-  // let functionName = initPluginRules.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = initPluginRules.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   let returnData = {};
   returnData = await chiefRules.initBusinessRules();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -60,12 +59,12 @@ async function initPluginRules() {
  * @date 2022/09/13
  */
 async function initPluginCommands() {
-  // let functionName = initPluginCommands.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = initPluginCommands.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   let returnData = {};
   returnData = await chiefCommander.initCommands();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -78,37 +77,37 @@ async function initPluginCommands() {
  * @date 2022/09/06
  */
 async function initPluginSchema(configData) {
-  // let functionName = initPluginSchema.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`configData is: ${JSON.stringify(configData)}`);
+  let functionName = initPluginSchema.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`configData is: ${JSON.stringify(configData)}`);
   await chiefData.initializeData();
   D[wrd.cdata] = configData; // Persist all of the plugin data we have so far.
   let pluginConfigPath = configData[cfg.cpluginConfigReferencePath];
   let pluginCommandAliasesPath = configData[cfg.cpluginCommandAliasesPath];
   let pluginWorkflowsPath = configData[cfg.cpluginWorkflowsPath];
-  // console.log('pluginConfigPath is: ' + JSON.stringify(pluginConfigPath));
-  // console.log('pluginCommandAliasesPath is: ' + JSON.stringify(pluginCommandAliasesPath));
-  // console.log('pluginWorkflowsPath is: ' + JSON.stringify(pluginWorkflowsPath));
+  console.log('pluginConfigPath is: ' + JSON.stringify(pluginConfigPath));
+  console.log('pluginCommandAliasesPath is: ' + JSON.stringify(pluginCommandAliasesPath));
+  console.log('pluginWorkflowsPath is: ' + JSON.stringify(pluginWorkflowsPath));
 
   // Load the configuration data for the plugin.
   let pluginConfigData = await chiefConfiguration.setupConfiguration(pluginConfigPath);
-  // console.log('pluginConfigData is: ' + JSON.stringify(pluginConfigData));
+  console.log('pluginConfigData is: ' + JSON.stringify(pluginConfigData));
   D[wrd.cdata][wrd.cconfiguration] = {};
   D[wrd.cdata][wrd.cconfiguration] = pluginConfigData;
 
   // Load the command aliases data for the plugin.
   let pluginCommandAliasesData = await chiefCommander.setupCommandAliases(pluginCommandAliasesPath);
-  // console.log('pluginCommandAliasesData is: ' + JSON.stringify(pluginCommandAliasesData));
+  console.log('pluginCommandAliasesData is: ' + JSON.stringify(pluginCommandAliasesData));
   D[wrd.cdata][wrd.cCommands + wrd.cAliases] = {};
   D[wrd.cdata][wrd.cCommands + wrd.cAliases] = pluginCommandAliasesData;
 
   // Load the workflows data for the plugin.
   let pluginWorkflowsData = await chiefWorkflow.setupWorkflows(pluginWorkflowsPath);
-  // console.log('pluginWorkflowsData is: ' + JSON.stringify(pluginWorkflowsData));
+  console.log('pluginWorkflowsData is: ' + JSON.stringify(pluginWorkflowsData));
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = {};
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = pluginWorkflowsData;
-  // console.log('contents of D are: ' + JSON.stringify(D));
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log('contents of D are: ' + JSON.stringify(D));
+  console.log(`END ${namespacePrefix}${functionName} function`);
 }
 
 export default {

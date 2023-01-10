@@ -34,13 +34,13 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/12
  */
 async function setupConfiguration(pluginConfigPath) {
-  // let functionName = setupConfiguration.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`pluginConfigPath is: ${pluginConfigPath}`);
+  let functionName = setupConfiguration.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  console.log(`pluginConfigPath is: ${pluginConfigPath}`);
   let returnData = {};
   returnData = await chiefData.loadConfigurationData(pluginConfigPath);
-  // console.log(`loaded plugin config data is: ${JSON.stringify(returnData)}`)
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`loaded plugin config data is: ${JSON.stringify(returnData)}`)
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

@@ -24,7 +24,6 @@ const {bas, cfg, msg, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // plugins.plugin-one.brokers.dataBroker.
 const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + baseFileName + bas.cDot;
-haystacks.accouterFramework(D[wrd.cdata][cfg.chaystacksContextObject]);
 
 /**
  * @function initData
@@ -35,10 +34,10 @@ haystacks.accouterFramework(D[wrd.cdata][cfg.chaystacksContextObject]);
  * @date 2022/09/08
  */
 async function initData() {
-  let functionName = initData.name;
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // let functionName = initData.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   D.data = {}; // Make sure it's initialized, should have been done when we called import above.
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
 }
 
 /**
@@ -49,13 +48,22 @@ async function initData() {
  * @date 2022/09/09
  */
 async function loadConfigData(configPath) {
-  let functionName = loadConfigData.name;
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`configPath is: ${configPath}`);
+  // let functionName = loadConfigData.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`configPath is: ${configPath}`);
   let returnData = {};
-  returnData = await haystacks.loadPluginResourceData(wrd.cconfiguration, configPath);
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // NOTE: This is the first call back to Haystacks to load data,
+  // we will need to pass the haystacks data back into this instance of Haystacks before we try to call it to get it to do any kind of work.
+  if (await haystacks.accouterFramework(D[wrd.cdata][cfg.chaystacksContextObject]) === true) {
+    // console.log('Done loading the Haystacks dependency data, now try and use Haystacks to load the config data, from the configPath.');
+    returnData = await haystacks.loadPluginResourceData(wrd.cconfiguration, configPath);
+  } else {
+    // FATAL ERROR: Unable to load the specified plugin config path, Haystacks framework data dependency failure:
+    console.log(msg.cloadConfigDataErrorMessage01 + configPath);
+  }
+  
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -69,13 +77,13 @@ async function loadConfigData(configPath) {
  * @date 2022/10/21
  */
  async function loadCommandAliasesData(aliasesPath) {
-  let functionName = loadCommandAliasesData.name;
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`aliasesPath is: ${aliasesPath}`);
+  // let functionName = loadCommandAliasesData.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`aliasesPath is: ${aliasesPath}`);
   let returnData = {};
   returnData = await haystacks.loadPluginResourceData(wrd.ccommand + wrd.cAliases, aliasesPath);
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -89,13 +97,13 @@ async function loadConfigData(configPath) {
  * @date 2022/10/21
  */
  async function loadWorkflowsData(workflowsPath) {
-  let functionName = loadWorkflowsData.name;
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`workflowsPath is: ${workflowsPath}`);
+  // let functionName = loadWorkflowsData.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`workflowsPath is: ${workflowsPath}`);
   let returnData = {};
   returnData = await haystacks.loadPluginResourceData(wrd.cworkflows, workflowsPath);
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

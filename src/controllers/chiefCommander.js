@@ -35,12 +35,12 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/08
  */
 async function initCommands() {
-  let functionName = initCommands.name;
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // let functionName = initCommands.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   let returnData = {};
   returnData = await commandBroker.bootStrapCommands();
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 
@@ -53,13 +53,13 @@ async function initCommands() {
  * @date 2022/09/21 
  */
 async function setupCommandAliases(pluginCommandAliasesPath) {
-  let functionName = setupCommandAliases.name;
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`pluginCommandAliasesPath is: ${pluginCommandAliasesPath}`);  
+  // let functionName = setupCommandAliases.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`pluginCommandAliasesPath is: ${pluginCommandAliasesPath}`);  
   let returnData = {};
   returnData = await chiefData.loadCommandAliasesData(pluginCommandAliasesPath);
-  console.log(`loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

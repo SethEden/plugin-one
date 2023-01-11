@@ -32,13 +32,13 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/10/21
  */
 async function setupWorkflows(pluginWorkflowsPath) {
-  let functionName = setupWorkflows.name;
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`pluginWorkflowsPath is: ${pluginWorkflowsPath}`);
+  // let functionName = setupWorkflows.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`pluginWorkflowsPath is: ${pluginWorkflowsPath}`);
   let returnData = {};
   returnData = await chiefData.loadWorkflowsData(pluginWorkflowsPath);
-  console.log(`loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

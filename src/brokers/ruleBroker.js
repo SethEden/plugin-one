@@ -35,12 +35,12 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/06
  */
 async function bootStrapBusinessRules() {
-  let functionName = bootStrapBusinessRules.name;
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // let functionName = bootStrapBusinessRules.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   let returnData = {};
   returnData = await rules.initPluginRulesLibrary();
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

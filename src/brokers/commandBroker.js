@@ -26,10 +26,10 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
 
 /**
  * @function bootStrapCommands
- * @description Captures al of the commands functions string-to-function call map data in
+ * @description Captures all of the commands functions string-to-function call map data in
  * the rulesLibrary and migrates that data to the D-data structure.
  * This is important now, because this data structure is how the plugin functionality will be
- * imported and subsequently executed by the haystacks framework.
+ * imported and subsequently executed by the Haystacks platform and its host application.
  * @return {object} An object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2022/09/08

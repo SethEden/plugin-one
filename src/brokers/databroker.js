@@ -28,7 +28,7 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
 /**
  * @function initData
  * @description Initialize the data that will be used by
- * the plugin to load all of the plugin content and export it to the haystacks platform.
+ * the plugin to load all of the plugin content and export it to the Haystacks platform.
  * @return {void}
  * @author Seth Hollingsead
  * @date 2022/09/08
@@ -42,7 +42,8 @@ async function initData() {
 
 /**
  * @function loadConfigData
- * @description Calls the haystacks tool to load the configuration data, parse it and return it as a JSON object.
+ * @description Calls the Haystacks platform to load the configuration data, parse it and return it as a JSON object.
+ * @param {string} configPath The path to the plugin configuration data that must be loaded.
  * @return {object} A JSON object that contains all of the configuration data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2022/09/09
@@ -53,7 +54,7 @@ async function loadConfigData(configPath) {
   // console.log(`configPath is: ${configPath}`);
   let returnData = {};
   // NOTE: This is the first call back to Haystacks to load data,
-  // we will need to pass the haystacks data back into this instance of Haystacks before we try to call it to get it to do any kind of work.
+  // we will need to pass the Haystacks data back into this instance of Haystacks before we try to call it to get it to do any kind of work.
   if (await haystacks.accouterFramework(D[wrd.cdata][cfg.chaystacksContextObject]) === true) {
     // console.log('Done loading the Haystacks dependency data, now try and use Haystacks to load the config data, from the configPath.');
     returnData = await haystacks.loadPluginResourceData(wrd.cconfiguration, configPath);
@@ -69,10 +70,10 @@ async function loadConfigData(configPath) {
 
 /**
  * @function loadCommandAliasesData
- * @description Loads the plugin command aliases data by calling the haystacks to
+ * @description Loads the plugin command aliases data by calling the haystacks platform to
  * load and parse the data from the specified path.
- * @param {strng} aliasesPath The fully qualified path to the command aliases folder with al of the command aliases data for the plugin.
- * @return {object} A JSON object that contains all of the command aliases data loaded and parsed rom the specified path.
+ * @param {string} aliasesPath The fully qualified path to the command aliases folder with all of the command aliases data for the plugin.
+ * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2022/10/21
  */
@@ -89,10 +90,10 @@ async function loadConfigData(configPath) {
 
 /**
  * @function loadWorkflowsData
- * @description Loads the plugin workflows data by calling the haystacks to
- * oad and parse the data from the specified path.
- * @param {string} workflowsPath The fully qualified path to the comand aliases folder with all of the workflows data for the plugin.
- * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from the specified path.
+ * @description Loads the plugin workflows data by calling the Haystacks platform to
+ * load and parse the workflows data from the specified path.
+ * @param {string} workflowsPath The fully qualified path to the workflows folder with all of the workflows data for the plugin.
+ * @return {object} A JSON object that contains all of the workflows data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2022/10/21
  */

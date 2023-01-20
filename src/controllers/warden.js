@@ -2,14 +2,13 @@
  * @file warden.js
  * @module warden
  * @description Contains all the functions to manage the entire plugin at the highest level.
- * Also provides an interface to easily manage all the plugin features & various functionaity from a single entry point.
+ * Also provides an interface to easily manage all the plugin features & various functionality from a single entry point.
  * @requires module:plugin.constants
  * @requires module:chiefCommander
  * @requires module:chiefConfiguration
  * @requires module:chiefData
  * @requires module:chiefRules
  * @requires module:chiefWorkflow
- * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
@@ -21,7 +20,7 @@
 import * as plg from '../constants/plugin.constants.js';
 import chiefCommander from './chiefCommander.js';
 import chiefConfiguration from './chiefConfiguration.js';
-import chiefData from './chiefData.js'
+import chiefData from './chiefData.js';
 import chiefRules from './chiefRules.js';
 import chiefWorkflow from './chiefWorkflow.js';
 import D from '../structures/pluginData.js';
@@ -31,13 +30,13 @@ import path from 'path';
 
 const {bas, cfg, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// plugins.plugin-one.brokers.ruleBroker.
-const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + baseFileName + bas.cDot;
+// plugins.plugin-one.controllers.warden.
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function initPluginRules
  * @description This is a wrapper call for chiefRules.initBusinessRules.
- * @return {object} An object that contains an array of function objects that map function name to function call for all the business rules.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all the business rules.
  * @author Seth Hollingsead
  * @date 2022/09/13
  */
@@ -54,7 +53,7 @@ async function initPluginRules() {
 /**
  * @function initPluginCommands
  * @description This is a wrapper call for chiefCommander.initCommands.
- * @return {object} An object that contains an array of function objects that map function name to function call for all of the commands.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2022/09/13
  */
@@ -114,4 +113,4 @@ export default {
   initPluginRules,
   initPluginCommands,
   initPluginSchema
-}
+};

@@ -15,7 +15,7 @@
 // Internal imports
 import commandBroker from '../brokers/commandBroker.js';
 import * as plg from '../constants/plugin.constants.js';
-import chiefData from './chiefData.js'
+import chiefData from './chiefData.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';

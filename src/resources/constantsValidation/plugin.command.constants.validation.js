@@ -13,7 +13,7 @@ import * as plg_cmd from '../../constants/plugin.command.constants.js';
 
 /**
  * @function pluginCommandConstantsValidation
- * @description Initiaizes the plugin command constants vaidation data objects array.
+ * @description Initializes the plugin command constants validation data objects array.
  * @return {array<Object<Name,Actual,Expected>>} An array of constants validation data objects.
  * @author Seth Hollingsead
  * @date 2022/09/12

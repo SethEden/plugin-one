@@ -2,7 +2,7 @@
  * @file chiefConfiguration.js
  * @module chiefConfiguration
  * @description Contains all the functions to manage the configuration system,
- * such as oading, setup, parsing & processing.
+ * such as loading, setup, parsing & processing.
  * @requires module:chiefData
  * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
@@ -16,7 +16,6 @@
 import * as plg from '../constants/plugin.constants.js';
 import chiefData from './chiefData.js';
 // External imports
-import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';
 import path from 'path';
 

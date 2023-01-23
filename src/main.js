@@ -38,45 +38,51 @@ dotenv.config();
 const {NODE_ENV} = process.env;
 
 // NOTE: Consider that in the plugin we have to have a Haystacks instance.
-// That haystacks instance is needed so we can pass the paths to the configuration files that must be loaded and parsed.
-// The haystacks has the code to do that loading and parsing so the intent is to let haystacks do that work and pass back the data after it's been parsed.
-// Then let the plugin do final organization of that data and again pass it back to haystacks so that the app using haystacks can make calls to the plugin functions and all it's data.
-// The trouble is the plugin instance of haystacks doesn't have the context (data or otherwise) to do everything that the application haystacks instance does.
-// The plugin haystacks instance would again have to load all of the haystacks configuration data, and meta-data and be completely bootstrapped yet again.
+// That Haystacks instance is needed so we can pass the paths to the configuration files that must be loaded and parsed.
+// The Haystacks has the code to do that loading and parsing so the intent is to let Haystacks do that work and pass back the data after it's been parsed.
+// Then let the plugin do final organization of that data and again pass it back to Haystacks so that the app using Haystacks can make calls to the plugin functions and all it's data.
+// The trouble is the plugin instance of Haystacks doesn't have the context (data or otherwise) to do everything that the application Haystacks instance does.
+// The plugin Haystacks instance would again have to load all of the Haystacks configuration data, and meta-data and be completely bootstrapped yet again.
 // Doing this for each and every plugin is not a viable solution because of the performance loss.
-// Basically the plugin instance of haystacks of a dumb idiot and cannot be used to do anything.
+// Basically the plugin instance of Haystacks is a dumb idiot and cannot be used to do anything.
 // There are 2 possible solutions that I can think of to solve this conundrum.
 
-// #1: Add a data parameter to the function below: initializePlugin that allows for the application instance of haystacks, when it calls this function to load this plugin,
-// and allow that instance of haystacks to pass its data context to this plugin.
+// #1: Add a data parameter to the function below: initializePlugin that allows for the application instance of Haystacks, when it calls this function to load this plugin,
+// and allow that instance of Haystacks to pass its data context to this plugin.
 // Then this plugin will store that data context in it's own (the plugins) data structure declared above as "D".
-// Then once the plugin creates the new haystacks instance, the data context stored on the plugins "D", can be passed back to the plugins instance of haystacks.
-// This in theory should give the plugin instance of haystacks the intelligence needed to act in exactly the same way that the application instance of haystacks works.
+// Then once the plugin creates the new Haystacks instance, the data context stored on the plugins "D", can be passed back to the plugins instance of Haystacks.
+// This in theory should give the plugin instance of Haystacks the intelligence needed to act in exactly the same way that the application instance of Haystacks works.
 
-// #2: In the host application, immediately after creating the instance of haystacks, that instance object could be stored in the appConfig object that is then passed along to the haystacks bootStrapper.
-// Then the instance object of haystacks could be stored in the haystacks "D" as a context object.
-// Then when the haystacks makes calls to load each plugin by calling their initializePlugin function as written below, that context object could be passed along as input to this function.
-// The plugin would initialize the instance of haystacks for the plugin by capturing the stored instance of haystacks and storing it in the plugins "D" so that call-backs can be made directly to a single instance of haystacks.
-// In theory this should make the application instance of haystacks and the plugin instance of haystacks to be exactly the same instance, and they should behave exactly the same way, and be capable of doing exactly the same things.
+// #2: In the host application, immediately after creating the instance of Haystacks, that instance object could be stored in the appConfig object that is then passed along to the Haystacks bootStrapper.
+// Then the instance object of Haystacks could be stored in the Haystacks "D" as a context object.
+// Then when the Haystacks makes calls to load each plugin by calling their initializePlugin function as written below, that context object could be passed along as input to this function.
+// The plugin would initialize the instance of Haystacks for the plugin by capturing the stored instance of Haystacks and storing it in the plugins "D" so that call-backs
+// can be made directly to a single instance of Haystacks.
+// In theory this should make the application instance of Haystacks and the plugin instance of Haystacks to be exactly the same instance,
+// and they should behave exactly the same way, and be capable of doing exactly the same things.
 
-// I just need another professional engineer with experience in JavaScript to evaluate this problem and these two solutions and confirm if my approach is correct, and which solution would be ideal, and is most likely to actually work and be a good and proper well engineered solution.
+// I just need another professional engineer with experience in JavaScript to evaluate this problem and these two solutions and confirm if my approach is correct,
+// and which solution would be ideal, and is most likely to actually work and be a good and proper well engineered solution.
 // My inclination is that Solution #2 is the idealized approach.
 
 // Solution #2 appears that it will be the ideal solution, now lets test it!!
 // Well turns out it is not possible to re-assign a module as an object once it has been imported.
 // Then the only remaining solution is #1.
 // FINALLY: YES!! Solution #1 is the way to solve this problem and got it working correctly.
+// HOWEVER, 1 problem still remains. The user must still clone the Haystacks/async repo locally, then link it to their application and to all their plugins as well.
+// I'll need to work to understand why this is.
 
 /**
  * @function initializePlugin
  * @description Collects all of the plugin data and provides it to the
- * haystacks platform so it can be used at run-time to provide enhanced
+ * Haystacks platform so it can be used at run-time to provide enhanced
  * capabilities to the application that loads this plugin.
  * @param {object} inputMetaData A JSON object that contains meta-data needed by the plugin.
- * In particular this contains a Haystacks context object that can be used to make calls back to Haystacks,
- * for the purpose of loading and parsing files, or any number of other operations that need to be done.
+ * In particular this contains a Haystacks context data object that can be used to to inject into a new instance of Haystacks,
+ * such that the new instance of Haystacks will act and behave exactly like the host application instance of Haystacks.
+ * Including being able to make calls back to Haystacks, for the purpose of loading and parsing files, or any number of other operations that need to be done.
  * @return {object} A JSON object that contains all of the data that the plugin
- * provides to the haystacks platform.
+ * provides to the Haystacks platform.
  * @author Seth Hollingsead
  * @date 2022/05/12
  */

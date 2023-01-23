@@ -26,8 +26,8 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
 /**
  * @function initBusinessRules
  * @description Initializes all of the business rules for the plugin,
- * so they can be loaded by the framework and used by the application.
- * @return {object} An object that contains an array of function objects that map function name to function call for all the business rules.
+ * so they can be loaded by the Haystacks platform and used by the application.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all the business rules in the plugin.
  * @author Seth Hollingsead
  * @date 2022/09/06
  */
@@ -43,4 +43,4 @@ async function initBusinessRules() {
 
 export default {
   initBusinessRules
-}
+};

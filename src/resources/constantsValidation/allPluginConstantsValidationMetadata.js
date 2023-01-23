@@ -12,7 +12,6 @@
  * @requires module:plugin.constants.validation
  * @requires module:plugin.message.constants.validation
  * @requires module:plugin.system.constants.validation
- * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
@@ -33,7 +32,6 @@ import * as plg_msg_cv from './plugin.message.constants.validation.js';
 import * as plg_sys_cv from './plugin.system.constants.validation.js';
 
 // External imports
-import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
@@ -46,7 +44,7 @@ let namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd
  * @function initializeAllPluginConstantsValidationData
  * @description Initializes all of the plugin constants validation data so that it can be used to validate all of the constants.
  * @param {string} pluginConstantsPath The path to the plugin constants folder.
- * @return {object} An object that contains all of the data and metaData for plugin level constants validation.
+ * @return {object} A JSON object that contains all of the data and metaData for plugin level constants validation.
  * @author Seth Hollingsead
  * @date 2022/09/12
  */

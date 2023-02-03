@@ -108,9 +108,30 @@ async function loadConfigData(configPath) {
   return returnData;
 }
 
+/**
+ * @function loadThemesData
+ * @description Loads the plugin themes data by calling the Haystacks platform to
+ * load and parse the workflows data from the specified path.
+ * @param {string} themesPath The fully qualified path to the themes folder with all of the themes data for the plugin.
+ * @return {object} A JSON objct that contains all of the themes paths data loaded and parsed from the specified path.
+ * @author Seth Hollingsead
+ * @date 2023/02/02
+ */
+async function loadThemesData(themesPath) {
+  // let functionName = loadThemesData.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`themesPath is: ${themesPath}`);
+  let returnData = {};
+  returnData = await haystacks.loadPluginResourceData(wrd.cthemes, themesPath);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
+}
+
 export default {
   initData,
   loadConfigData,
   loadCommandAliasesData,
-  loadWorkflowsData
+  loadWorkflowsData,
+  loadThemesData
 }

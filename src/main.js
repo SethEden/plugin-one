@@ -87,8 +87,8 @@ const {NODE_ENV} = process.env;
  * @date 2022/05/12
  */
 async function initializePlugin(inputMetaData) {
-  // let functionName = initializePlugin.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = initializePlugin.name;
+  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   // console.log(`inputMetaData is: ` + JSON.stringify(inputMetaData));
   rootPath = url.fileURLToPath(path.dirname(import.meta.url));
   let rootPathArray = rootPath.split(bas.cBackSlash);
@@ -107,6 +107,7 @@ async function initializePlugin(inputMetaData) {
       pluginCommandAliasesPath: rootPath + plg.cFullDevCommandsPath,
       pluginConstantsPath: rootPath + plg.cFullDevConstantsPath,
       pluginWorkflowsPath: rootPath + plg.cFullDevWorkflowsPath,
+      pluginThemesPath: rootPath + plg.cFullDevThemesPath,
       pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
       pluginBusinessRules: {},
       pluginCommands: {},
@@ -123,6 +124,7 @@ async function initializePlugin(inputMetaData) {
       pluginCommandAliasesPath: rootPath + plg.cFullProdCommandsPath,
       pluginConstantsPath: rootPath + plg.cFullProdConstantsPath,
       pluginWorkflowsPath: rootPath + plg.cFullProdWorkflowsPath,
+      pluginThemesPath: rootPath + plg.cFullProdThemesPath,
       pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullProdConstantsPath),
       pluginBusinessRules: {},
       pluginCommands: {},
@@ -141,6 +143,7 @@ async function initializePlugin(inputMetaData) {
       pluginCommandAliasesPath: rootPath + plg.cFullDevCommandsPath,
       pluginConstantsPath: rootPath + plg.cFullDevConstantsPath,
       pluginWorkflowsPath: rootPath + plg.cFullDevWorkflowsPath,
+      pluginThemesPath: rootPath + plg.cFullDevThemesPath,
       pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
       pluginBusinessRules: {},
       pluginCommands: {},
@@ -151,8 +154,8 @@ async function initializePlugin(inputMetaData) {
   pluginConfig[sys.cpluginCommands] = await warden.initPluginCommands();
   await warden.initPluginSchema(pluginConfig);
   let returnData = D; // Export all of the plugin data.
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 };
 

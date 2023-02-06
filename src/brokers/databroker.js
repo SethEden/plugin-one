@@ -111,9 +111,9 @@ async function loadConfigData(configPath) {
 /**
  * @function loadThemesData
  * @description Loads the plugin themes data by calling the Haystacks platform to
- * load and parse the workflows data from the specified path.
+ * load and parse the themes data from the specified path.
  * @param {string} themesPath The fully qualified path to the themes folder with all of the themes data for the plugin.
- * @return {object} A JSON objct that contains all of the themes paths data loaded and parsed from the specified path.
+ * @return {object} A JSON object that contains all of the themes paths data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/02/02
  */

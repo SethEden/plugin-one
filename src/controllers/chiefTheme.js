@@ -31,13 +31,13 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2023/02/02
  */
 async function setupThemes(pluginThemesPath) {
-  let functionName = setupThemes.name;
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`pluginThemesPath is: ${pluginThemesPath}`);
+  // let functionName = setupThemes.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`pluginThemesPath is: ${pluginThemesPath}`);
   let returnData = {};
   returnData = await chiefData.loadThemesData(pluginThemesPath);
-  console.log(`loaded plugin config data is: ${JSON.stringify(returnData)}`)
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`loaded plugin config data is: ${JSON.stringify(returnData)}`)
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

@@ -53,13 +53,13 @@ async function initCommands() {
  * @date 2022/09/21 
  */
 async function setupCommandAliases(pluginCommandAliasesPath) {
-  let functionName = setupCommandAliases.name;
-  console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  console.log(`pluginCommandAliasesPath is: ${pluginCommandAliasesPath}`);  
+  // let functionName = setupCommandAliases.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`pluginCommandAliasesPath is: ${pluginCommandAliasesPath}`);  
   let returnData = {};
   returnData = await chiefData.loadCommandAliasesData(pluginCommandAliasesPath);
-  console.log(`loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`loaded plugin command aliases data is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

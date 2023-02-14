@@ -4,6 +4,7 @@
  * @description Contains all of the top-level functions to manage the business rules for the plugin.
  * @requires module:ruleBroker
  * @requires module:plugin.constants
+ * @requires module:loggers
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
@@ -14,6 +15,7 @@
 // Internal imports
 import ruleBroker from '../brokers/ruleBroker.js';
 import * as plg from '../constants/plugin.constants.js';
+import loggers from '../executrix/loggers.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -32,12 +34,12 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/06
  */
 async function initBusinessRules() {
-  // let functionName = initBusinessRules.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = initBusinessRules.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData = await ruleBroker.bootStrapBusinessRules();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

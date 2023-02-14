@@ -10,6 +10,8 @@
  * @requires module:chiefRules
  * @requires module:chiefTheme
  * @requires module:chiefWorkflow
+ * @requires module:loggers
+ * @requires module:pluginData
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
@@ -25,6 +27,7 @@ import chiefData from './chiefData.js';
 import chiefRules from './chiefRules.js';
 import chiefTheme from './chiefTheme.js';
 import chiefWorkflow from './chiefWorkflow.js';
+import loggers from '../executrix/loggers.js';
 import D from '../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';
@@ -43,12 +46,12 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/13
  */
 async function initPluginRules() {
-  // let functionName = initPluginRules.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = initPluginRules.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData = await chiefRules.initBusinessRules();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -60,12 +63,12 @@ async function initPluginRules() {
  * @date 2022/09/13
  */
 async function initPluginCommands() {
-  // let functionName = initPluginCommands.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = initPluginCommands.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData = await chiefCommander.initCommands();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -73,50 +76,52 @@ async function initPluginCommands() {
  * @function initPluginSchema
  * @description Setup all of the plugin data and configuration settings.
  * @param {object} configData All of the configuration data and paths that should be parsed as part of the setup process.
- * @return {object} All of the plugin data that should be returned to the rest of the framework.
+ * @return {object} All of the plugin data that should be returned to the rest of the Haystacks platform.
  * @author Seth Hollingsead
  * @date 2022/09/06
  */
 async function initPluginSchema(configData) {
-  // let functionName = initPluginSchema.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`configData is: ${JSON.stringify(configData)}`);
+  let functionName = initPluginSchema.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // configData is:
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cconfigDataIs + JSON.stringify(configData));
   await chiefData.initializeData();
+  D[wrd.cdata][cfg.cLogFilePathAndName] = configData[cfg.cLogFilePathAndName];
   D[wrd.cdata] = configData; // Persist all of the plugin data we have so far.
   let pluginConfigPath = configData[cfg.cpluginConfigReferencePath];
   let pluginCommandAliasesPath = configData[cfg.cpluginCommandAliasesPath];
   let pluginWorkflowsPath = configData[cfg.cpluginWorkflowsPath];
   let pluginThemesPath = configData[cfg.cpluginThemesPath];
-  // console.log('pluginConfigPath is: ' + pluginConfigPath);
-  // console.log('pluginCommandAliasesPath is: ' + pluginCommandAliasesPath);
-  // console.log('pluginWorkflowsPath is: ' + pluginWorkflowsPath);
-  // console.log('pluginThemesPath is: ' + pluginThemesPath);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginConfigPathIs + pluginConfigPath);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginCommandAliasesPathIs + pluginCommandAliasesPath);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginWorkflowsPathIs + pluginWorkflowsPath);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginThemesPathIs + pluginThemesPath);
 
   // Load the configuration data for the plugin.
   let pluginConfigData = await chiefConfiguration.setupConfiguration(pluginConfigPath);
-  // console.log('pluginConfigData is: ' + JSON.stringify(pluginConfigData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginConfigDataIs + JSON.stringify(pluginConfigData));
   D[wrd.cdata][wrd.cconfiguration] = {};
   D[wrd.cdata][wrd.cconfiguration] = pluginConfigData;
 
   // Load the command aliases data for the plugin.
   let pluginCommandAliasesData = await chiefCommander.setupCommandAliases(pluginCommandAliasesPath);
-  // console.log('pluginCommandAliasesData is: ' + JSON.stringify(pluginCommandAliasesData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginCommandAliasesDataIs + JSON.stringify(pluginCommandAliasesData));
   D[wrd.cdata][wrd.cCommands + wrd.cAliases] = {};
   D[wrd.cdata][wrd.cCommands + wrd.cAliases] = pluginCommandAliasesData;
 
   // Load the workflows data for the plugin.
   let pluginWorkflowsData = await chiefWorkflow.setupWorkflows(pluginWorkflowsPath);
-  // console.log('pluginWorkflowsData is: ' + JSON.stringify(pluginWorkflowsData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginWorkflowsDataIs + JSON.stringify(pluginWorkflowsData));
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = {};
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = pluginWorkflowsData;
 
   // Load the themes data for the plugin.
   let pluginThemesData = await chiefTheme.setupThemes(pluginThemesPath);
-  // console.log('pluginThemesData is: ' + JSON.stringify(pluginThemesData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginThemesDataIs + JSON.stringify(pluginThemesData));
   D[wrd.cdata][wrd.cThemes] = {};
   D[wrd.cdata][wrd.cThemes] = pluginThemesData;
-  // console.log('contents of D are: ' + JSON.stringify(D));
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.ccontentsOfDare + JSON.stringify(D));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
 }
 
 export default {

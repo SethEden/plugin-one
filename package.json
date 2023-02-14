@@ -25,6 +25,7 @@
   "dependencies": {
     "@haystacks/async": "0.1.10",
     "@haystacks/constants": "0.1.10",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "moment": "2.29.4"
   }
 }

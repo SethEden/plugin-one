@@ -34,14 +34,14 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/10/21
  */
 async function setupWorkflows(pluginWorkflowsPath) {
-  let functionName = setupWorkflows.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = setupWorkflows.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // pluginWorkflowsPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginWorkflowsPathIs + pluginWorkflowsPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginWorkflowsPathIs + pluginWorkflowsPath);
   let returnData = {};
   returnData = await chiefData.loadWorkflowsData(pluginWorkflowsPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

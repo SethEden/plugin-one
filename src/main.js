@@ -89,14 +89,14 @@ const {NODE_ENV} = process.env;
  * @date 2022/05/12
  */
 async function initializePlugin(inputMetaData) {
-  let functionName = initializePlugin.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cinputMetaDataIs + JSON.stringify(inputMetaData));
+  // let functionName = initializePlugin.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cinputMetaDataIs + JSON.stringify(inputMetaData));
   rootPath = url.fileURLToPath(path.dirname(import.meta.url));
   let rootPathArray = rootPath.split(bas.cBackSlash);
   rootPathArray.pop(); // remove any bin or src folder from the path.
   rootPath = rootPathArray.join(bas.cBackSlash);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.crootPathIs + rootPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.crootPathIs + rootPath);
   let logFilePathAndName = await loggers.getLogFileNameAndPath(inputMetaData);
   let pluginConfig = {};
   if (NODE_ENV === wrd.cdevelopment) {
@@ -161,8 +161,8 @@ async function initializePlugin(inputMetaData) {
   await warden.initPluginSchema(pluginConfig);
   D[cfg.chaystacksContextObject] = {};
   let returnData = D; // Export all of the plugin data.
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

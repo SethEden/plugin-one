@@ -34,14 +34,14 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2023/02/02
  */
 async function setupThemes(pluginThemesPath) {
-  let functionName = setupThemes.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = setupThemes.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // pluginThemesPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginThemesPathIs + pluginThemesPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginThemesPathIs + pluginThemesPath);
   let returnData = {};
   returnData = await chiefData.loadThemesData(pluginThemesPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

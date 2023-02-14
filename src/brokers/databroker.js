@@ -36,10 +36,10 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/08
  */
 async function initData() {
-  let functionName = initData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = initData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   D.data = {}; // Make sure it's initialized, should have been done when we called import above.
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
 }
 
 /**
@@ -51,10 +51,10 @@ async function initData() {
  * @date 2022/09/09
  */
 async function loadConfigData(configPath) {
-  let functionName = loadConfigData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = loadConfigData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // configPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cconfigPathIs + configPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cconfigPathIs + configPath);
   let returnData = {};
   // NOTE: This is the first call back to Haystacks to load data,
   // we will need to pass the Haystacks data back into this instance of Haystacks before we try to call it to get it to do any kind of work.
@@ -62,7 +62,7 @@ async function loadConfigData(configPath) {
     if (D[wrd.cdata][cfg.chaystacksContextObject]) {
       if (await haystacks.accouterFramework(D[wrd.cdata][cfg.chaystacksContextObject]) === true) {
         // Done loading the Haystacks dependency data, now try and use Haystacks to load the config data, from the configPath.
-        await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginLoadConfigDataMessage);
+        // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginLoadConfigDataMessage);
         returnData = await haystacks.loadPluginResourceData(wrd.cconfiguration, configPath);
       } else {
         // FATAL ERROR: Unable to load the specified plugin config path, Haystacks framework data dependency failure:
@@ -76,8 +76,8 @@ async function loadConfigData(configPath) {
     // FATAL ERROR: Unable to load the specified plugin, no config data for the plugin:
     console.log(msg.cloadConfigDataErrorMessage03 + configPath);
   }  
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -91,14 +91,14 @@ async function loadConfigData(configPath) {
  * @date 2022/10/21
  */
 async function loadCommandAliasesData(aliasesPath) {
-  let functionName = loadCommandAliasesData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = loadCommandAliasesData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // aliasesPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.caliasesPathIs + aliasesPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.caliasesPathIs + aliasesPath);
   let returnData = {};
   returnData = await haystacks.loadPluginResourceData(wrd.ccommand + wrd.cAliases, aliasesPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -112,14 +112,14 @@ async function loadCommandAliasesData(aliasesPath) {
  * @date 2022/10/21
  */
 async function loadWorkflowsData(workflowsPath) {
-  let functionName = loadWorkflowsData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = loadWorkflowsData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // workflowsPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cworkflowsPathIs + workflowsPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cworkflowsPathIs + workflowsPath);
   let returnData = {};
   returnData = await haystacks.loadPluginResourceData(wrd.cworkflows, workflowsPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -133,14 +133,14 @@ async function loadWorkflowsData(workflowsPath) {
  * @date 2023/02/02
  */
 async function loadThemesData(themesPath) {
-  let functionName = loadThemesData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = loadThemesData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // themesPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cthemesPathIs + themesPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cthemesPathIs + themesPath);
   let returnData = {};
   returnData = await haystacks.loadPluginResourceData(wrd.cthemes, themesPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

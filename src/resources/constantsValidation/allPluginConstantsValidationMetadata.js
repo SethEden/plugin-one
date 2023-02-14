@@ -50,10 +50,10 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/12
  */
 async function initializeAllPluginConstantsValidationData(pluginConstantsPath) {
-  let functionName = initializeAllPluginConstantsValidationData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = initializeAllPluginConstantsValidationData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // pluginConstantsPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cpluginConstantsPathIs + pluginConstantsPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cpluginConstantsPathIs + pluginConstantsPath);
 
   let allPluginConstantsValidationData = {};
   allPluginConstantsValidationData[sys.cConstantsValidationData] = {};
@@ -83,15 +83,15 @@ async function initializeAllPluginConstantsValidationData(pluginConstantsPath) {
   let resolvedConstantsPath_PluginSystem = path.resolve(pluginConstantsPath + bas.cForwardSlash + plg_sys.cplugin_system_constants_js);
 
   // resolvedConstantsPath_PluginBusiness
-  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginBusinessIs + resolvedConstantsPath_PluginBusiness);
+  // await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginBusinessIs + resolvedConstantsPath_PluginBusiness);
   // resolvedConstantsPath_PluginCommand
-  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginCommandIs + resolvedConstantsPath_PluginCommand);
+  // await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginCommandIs + resolvedConstantsPath_PluginCommand);
   // resolvedConstantsPath_PluginConstant
-  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginConstantIs + resolvedConstantsPath_PluginConstant);
+  // await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginConstantIs + resolvedConstantsPath_PluginConstant);
   // resolvedConstantsPath_PluginMessage
-  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginMessageIs + resolvedConstantsPath_PluginMessage);
+  // await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginMessageIs + resolvedConstantsPath_PluginMessage);
   // resolvedConstantsPath_PluginSystem
-  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginSystemIs + resolvedConstantsPath_PluginSystem);
+  // await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginSystemIs + resolvedConstantsPath_PluginSystem);
 
   allPluginConstantsValidationData[sys.cConstantsValidationData][sys.cConstantsFilePaths][plg_sys.cpluginBusinessConstantsValidation] = resolvedConstantsPath_PluginBusiness;
   allPluginConstantsValidationData[sys.cConstantsValidationData][sys.cConstantsFilePaths][plg_sys.cpluginCommandConstantsValidation] = resolvedConstantsPath_PluginCommand;
@@ -140,8 +140,8 @@ async function initializeAllPluginConstantsValidationData(pluginConstantsPath) {
   allPluginConstantsValidationData[sys.cConstantsValidationData][sys.cConstantsPrefix][plg_sys.cpluginSystemConstantsValidation] = gen.cplg + bas.cUnderscore + gen.csys + bas.cDot;
 
   // allPluginConstantsValidationData is:
-  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.callPluginConstantsValidationDataIs + JSON.stringify(allPluginConstantsValidationData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, plg_msg.callPluginConstantsValidationDataIs + JSON.stringify(allPluginConstantsValidationData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return allPluginConstantsValidationData;
 }
 

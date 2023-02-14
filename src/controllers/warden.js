@@ -46,12 +46,12 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/13
  */
 async function initPluginRules() {
-  let functionName = initPluginRules.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = initPluginRules.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData = await chiefRules.initBusinessRules();
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -63,12 +63,12 @@ async function initPluginRules() {
  * @date 2022/09/13
  */
 async function initPluginCommands() {
-  let functionName = initPluginCommands.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = initPluginCommands.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData = await chiefCommander.initCommands();
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -81,10 +81,10 @@ async function initPluginCommands() {
  * @date 2022/09/06
  */
 async function initPluginSchema(configData) {
-  let functionName = initPluginSchema.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = initPluginSchema.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // configData is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cconfigDataIs + JSON.stringify(configData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cconfigDataIs + JSON.stringify(configData));
   await chiefData.initializeData();
   D[wrd.cdata][cfg.cLogFilePathAndName] = configData[cfg.cLogFilePathAndName];
   D[wrd.cdata] = configData; // Persist all of the plugin data we have so far.
@@ -92,36 +92,36 @@ async function initPluginSchema(configData) {
   let pluginCommandAliasesPath = configData[cfg.cpluginCommandAliasesPath];
   let pluginWorkflowsPath = configData[cfg.cpluginWorkflowsPath];
   let pluginThemesPath = configData[cfg.cpluginThemesPath];
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginConfigPathIs + pluginConfigPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginCommandAliasesPathIs + pluginCommandAliasesPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginWorkflowsPathIs + pluginWorkflowsPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginThemesPathIs + pluginThemesPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginConfigPathIs + pluginConfigPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginCommandAliasesPathIs + pluginCommandAliasesPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginWorkflowsPathIs + pluginWorkflowsPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginThemesPathIs + pluginThemesPath);
 
   // Load the configuration data for the plugin.
   let pluginConfigData = await chiefConfiguration.setupConfiguration(pluginConfigPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginConfigDataIs + JSON.stringify(pluginConfigData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginConfigDataIs + JSON.stringify(pluginConfigData));
   D[wrd.cdata][wrd.cconfiguration] = {};
   D[wrd.cdata][wrd.cconfiguration] = pluginConfigData;
 
   // Load the command aliases data for the plugin.
   let pluginCommandAliasesData = await chiefCommander.setupCommandAliases(pluginCommandAliasesPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginCommandAliasesDataIs + JSON.stringify(pluginCommandAliasesData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginCommandAliasesDataIs + JSON.stringify(pluginCommandAliasesData));
   D[wrd.cdata][wrd.cCommands + wrd.cAliases] = {};
   D[wrd.cdata][wrd.cCommands + wrd.cAliases] = pluginCommandAliasesData;
 
   // Load the workflows data for the plugin.
   let pluginWorkflowsData = await chiefWorkflow.setupWorkflows(pluginWorkflowsPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginWorkflowsDataIs + JSON.stringify(pluginWorkflowsData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginWorkflowsDataIs + JSON.stringify(pluginWorkflowsData));
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = {};
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = pluginWorkflowsData;
 
   // Load the themes data for the plugin.
   let pluginThemesData = await chiefTheme.setupThemes(pluginThemesPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginThemesDataIs + JSON.stringify(pluginThemesData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginThemesDataIs + JSON.stringify(pluginThemesData));
   D[wrd.cdata][wrd.cThemes] = {};
   D[wrd.cdata][wrd.cThemes] = pluginThemesData;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.ccontentsOfDare + JSON.stringify(D));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.ccontentsOfDare + JSON.stringify(D));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
 }
 
 export default {

@@ -41,8 +41,8 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + s
  * but could be really confusing if you are struggling, trying to debug commands or business rules that do not appear to exist.
  */
 async function initPluginCommandsLibrary() {
-  let functionName = initPluginCommandsLibrary.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = initPluginCommandsLibrary.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData[wrd.ccommands] = {};
   returnData[wrd.ccommands] = {
@@ -56,8 +56,8 @@ async function initPluginCommandsLibrary() {
     // END pluginOne category
     // ***********************************************************************
   };
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

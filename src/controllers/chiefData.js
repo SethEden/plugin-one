@@ -34,10 +34,10 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2022/09/08
  */
 async function initializeData() {
-  let functionName = initializeData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = initializeData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   await dataBroker.initData();
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
 }
 
 /**
@@ -50,14 +50,14 @@ async function initializeData() {
  * @date 2022/09/09
  */
 async function loadConfigurationData(configPath) {
-  let functionName = loadConfigurationData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = loadConfigurationData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // configPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cconfigPathIs + configPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cconfigPathIs + configPath);
   let returnData = {};
   returnData = await dataBroker.loadConfigData(configPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -71,14 +71,14 @@ async function loadConfigurationData(configPath) {
  * @date 2022/10/21
  */
 async function loadCommandAliasesData(aliasesPath) {
-  let functionName = loadCommandAliasesData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = loadCommandAliasesData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // aliasesPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.caliasesPathIs + aliasesPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.caliasesPathIs + aliasesPath);
   let returnData = {};
   returnData = await dataBroker.loadCommandAliasesData(aliasesPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -92,14 +92,14 @@ async function loadCommandAliasesData(aliasesPath) {
  * @date 2022/10/21
  */
 async function loadWorkflowsData(workflowsPath) {
-  let functionName = loadWorkflowsData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = loadWorkflowsData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // workflowsPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cworkflowsPathIs + workflowsPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cworkflowsPathIs + workflowsPath);
   let returnData = {};
   returnData = await dataBroker.loadWorkflowsData(workflowsPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -113,14 +113,14 @@ async function loadWorkflowsData(workflowsPath) {
  * @date 2023/02/02
  */
 async function loadThemesData(themesPath) {
-  let functionName = loadThemesData.name;
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // let functionName = loadThemesData.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // themesPath is:
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cthemesPathIs + themesPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cthemesPathIs + themesPath);
   let returnData = {};
   returnData = await dataBroker.loadThemesData(themesPath);
-  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

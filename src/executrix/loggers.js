@@ -46,7 +46,7 @@ async function getLogFileNameAndPath(haystacksConfigData) {
   // let functionName = getLogFileNameAndPath.name;
   // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   // haystacksConfigData is:
-  console.log(msg.chaystacksConfigDataIs + JSON.stringify(haystacksConfigData));
+  // console.log(msg.chaystacksConfigDataIs + JSON.stringify(haystacksConfigData));
   let logFile = haystacksConfigData[wrd.cconfiguration][wrd.csystem][wrd.csystem + bas.cDot + cfg.cclientRootPath];
   if (logFile !== undefined) {
     logFile = path.join(logFile + bas.cForwardSlash + wrd.clogs + bas.cForwardSlash + haystacksConfigData[wrd.cconfiguration][wrd.csystem][wrd.csystem + bas.cDot + cfg.clogFileName]);

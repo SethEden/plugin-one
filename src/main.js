@@ -159,7 +159,7 @@ async function initializePlugin(inputMetaData) {
   pluginConfig[sys.cpluginBusinessRules] = await warden.initPluginRules();
   pluginConfig[sys.cpluginCommands] = await warden.initPluginCommands();
   await warden.initPluginSchema(pluginConfig);
-  D[cfg.chaystacksContextObject] = {};
+  D[wrd.cdata][cfg.chaystacksContextObject] = {};
   let returnData = D; // Export all of the plugin data.
   // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
   // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);

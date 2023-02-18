@@ -4,6 +4,7 @@
  * @description Contains all of the functions necessary to bootStrap the commands for the plugin.
  * @requires module:commandLibrary
  * @requires module:plugin.constants
+ * @requires module:loggers
  * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
@@ -15,6 +16,7 @@
 // Internal imports
 import commands from '../commandsBlob/commandsLibrary.js';
 import * as plg from '../constants/plugin.constants.js';
+import loggers from '../executrix/loggers.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -26,24 +28,24 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
 
 /**
  * @function bootStrapCommands
- * @description Captures al of the commands functions string-to-function call map data in
+ * @description Captures all of the commands functions string-to-function call map data in
  * the rulesLibrary and migrates that data to the D-data structure.
  * This is important now, because this data structure is how the plugin functionality will be
- * imported and subsequently executed by the haystacks framework.
- * @return {object} An object that contains an array of function objects that map function name to function call for all of the commands.
+ * imported and subsequently executed by the Haystacks platform and its host application.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2022/09/08
  */
 async function bootStrapCommands() {
   // let functionName = bootStrapCommands.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData = await commands.initPluginCommandsLibrary();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
 export default {
   bootStrapCommands
-}
+};

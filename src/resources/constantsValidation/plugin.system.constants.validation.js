@@ -14,7 +14,7 @@ import * as plg_sys from '../../constants/plugin.system.constants.js';
 /**
  * @function pluginSystemConstantsValidation
  * @description Initializes the plugin system constants validation data objects array.
- * @return {array<Object<Name,Actual,Expected>>} An array of constants validation data objects.
+ * @return {array<object<Name,Actual,Expected>>} An array of constants validation data objects.
  * @author Seth Hollingsead
  * @date 2022/09/12
  */

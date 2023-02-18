@@ -36,19 +36,14 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + s
  */
 async function pluginOneRule01(inputData, inputMetaData) {
   let functionName = pluginOneRule01.name;
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`inputData is: ${inputData}`);
-  // console.log(`inputMetaData is: ${inputMetaData}`);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
   let returnData = '';
   returnData = wrd.cplugin + num.cOne + wrd.cRule + num.c01;
   console.log(namespacePrefix + returnData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  // console.log(`returnData is: ${returnData}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -64,19 +59,14 @@ async function pluginOneRule01(inputData, inputMetaData) {
  */
 async function pluginOneRule02(inputData, inputMetaData) {
   let functionName = pluginOneRule02.name;
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`inputData is: ${inputData}`);
-  // console.log(`inputMetaData is: ${inputMetaData}`);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
   let returnData = '';
   returnData = wrd.cplugin + num.cOne + wrd.cRule + num.c02;
   console.log(namespacePrefix + returnData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  // console.log(`returnData is: ${returnData}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   return returnData;
 }
 

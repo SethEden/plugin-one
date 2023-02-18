@@ -21,13 +21,15 @@ export const cCommandsCommonPath = wrd.ccommands + bas.cForwardSlash; // command
 export const cConstantsPath = wrd.cconstants + bas.cForwardSlash; // constants/
 export const cConfigurationCommonPath = wrd.cconfiguration + bas.cForwardSlash; // configuration/
 export const cWorkflowsCommonPath = wrd.cworkflows + bas.cForwardSlash; // workflows/
+export const cThemesCommonPath = wrd.cthemes + bas.cForwardSlash; // themes/
 
 // Full Dev paths
 export const cFullDevResourcesPath = cPluginDevPath + cResourcesCommonPath; // /src/resources/
 export const cFullDevCommandsPath = cFullDevResourcesPath + cCommandsCommonPath; // /src/resources/commands/
-export const cFullDevConstantsPath = cPluginDevPath + cConstantsPath; // /src/constants
+export const cFullDevConstantsPath = cPluginDevPath + cConstantsPath; // /src/constants/
 export const cFullDevConfigurationPath = cFullDevResourcesPath + cConfigurationCommonPath; // /src/resources/configuration/
-export const cFullDevWorkflowsPath = cFullDevResourcesPath + cWorkflowsCommonPath; // /src/resources/workflows
+export const cFullDevWorkflowsPath = cFullDevResourcesPath + cWorkflowsCommonPath; // /src/resources/workflows/
+export const cFullDevThemesPath = cFullDevResourcesPath + cThemesCommonPath; // /src/resources/themes/
 export const cmetaDataDevPath = cFullDevResourcesPath + sys.cmetaDatadotJson; // /src/resources/metaData.json
 
 // Full Prod paths
@@ -36,4 +38,5 @@ export const cFullProdCommandsPath = cFullProdResourcesPath + cCommandsCommonPat
 export const cFullProdConstantsPath = cPluginProdPath + cConstantsPath; // /bin/constants/
 export const cFullProdConfigurationPath = cFullProdResourcesPath + cConfigurationCommonPath; // /bin/resources/configuration/
 export const cFullProdWorkflowsPath = cFullProdResourcesPath + cWorkflowsCommonPath; // /bin/resources/workflows/
+export const cFullProdThemesPath = cFullProdResourcesPath + cThemesCommonPath; // /bin/resources/themes/
 export const cmetaDataProdPath = cFullProdResourcesPath + sys.cmetaDatadotJson; // /bin/resources/metaData.json

@@ -2,9 +2,10 @@
  * @file chiefConfiguration.js
  * @module chiefConfiguration
  * @description Contains all the functions to manage the configuration system,
- * such as oading, setup, parsing & processing.
+ * such as loading, setup, parsing & processing.
+ * @requires module:plugin.constants
  * @requires module:chiefData
- * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
+ * @requires module:loggers
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
@@ -15,8 +16,8 @@
 // Internal imports
 import * as plg from '../constants/plugin.constants.js';
 import chiefData from './chiefData.js';
+import loggers from '../executrix/loggers.js';
 // External imports
-import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
@@ -35,12 +36,13 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  */
 async function setupConfiguration(pluginConfigPath) {
   // let functionName = setupConfiguration.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`pluginConfigPath is: ${pluginConfigPath}`);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // pluginConfigPath is:
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginConfigPathIs + pluginConfigPath);
   let returnData = {};
   returnData = await chiefData.loadConfigurationData(pluginConfigPath);
-  // console.log(`loaded plugin config data is: ${JSON.stringify(returnData)}`)
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

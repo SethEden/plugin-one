@@ -14,7 +14,7 @@ import hayConst from '@haystacks/constants';
 const {bas, gen, num, wrd} = hayConst;
 
 // Constants Validation
-export const cresolvedConstantsPath_Plugin = wrd.cresolved + wrd.cConstants + wrd.cPath + bas.cUnderscore + wrd.cPlugin; // reslvedConstantsPath_Plugin
+export const cresolvedConstantsPath_Plugin = wrd.cresolved + wrd.cConstants + wrd.cPath + bas.cUnderscore + wrd.cPlugin; // resolvedConstantsPath_Plugin
 export const cpluginBusinessConstantsValidation = wrd.cplugin + wrd.cBusiness + wrd.cConstants + wrd.cValidation; // pluginBusinessConstantsValidation
 export const cpluginCommandConstantsValidation = wrd.cplugin + wrd.cCommand + wrd.cConstants + wrd.cValidation; // pluginCommandConstantsValidation
 export const cpluginConstantsValidation = wrd.cplugin + wrd.cConstants + wrd.cValidation; // pluginConstantsValidation

@@ -94,7 +94,7 @@ async function initializePlugin(inputMetaData) {
   // await loggers.consoleLog(namespacePrefix + functionName, msg.cinputMetaDataIs + JSON.stringify(inputMetaData));
   rootPath = url.fileURLToPath(path.dirname(import.meta.url));
   let pathSeparator = '';
-  if (process.platform === gen.cwind32) {
+  if (process.platform === gen.cwin32) {
     pathSeparator = bas.cBackSlash;
   } else {
     pathSeparator = bas.cForwardSlash;

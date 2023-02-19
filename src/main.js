@@ -31,7 +31,7 @@ import url from 'url';
 import dotenv from 'dotenv';
 import path from 'path';
 
-const {bas, cfg, msg, sys, wrd} = hayConst;
+const {bas, cfg, gen, msg, sys, wrd} = hayConst;
 let rootPath = '';
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // plugins.plugin-one.main.
@@ -93,9 +93,15 @@ async function initializePlugin(inputMetaData) {
   // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // await loggers.consoleLog(namespacePrefix + functionName, msg.cinputMetaDataIs + JSON.stringify(inputMetaData));
   rootPath = url.fileURLToPath(path.dirname(import.meta.url));
-  let rootPathArray = rootPath.split(bas.cBackSlash);
+  let pathSeparator = '';
+  if (process.platform === gen.cwind32) {
+    pathSeparator = bas.cBackSlash;
+  } else {
+    pathSeparator = bas.cForwardSlash;
+  }
+  let rootPathArray = rootPath.split(pathSeparator);
   rootPathArray.pop(); // remove any bin or src folder from the path.
-  rootPath = rootPathArray.join(bas.cBackSlash);
+  rootPath = rootPathArray.join(pathSeparator);
   // await loggers.consoleLog(namespacePrefix + functionName, msg.crootPathIs + rootPath);
   let logFilePathAndName = await loggers.getLogFileNameAndPath(inputMetaData);
   let pluginConfig = {};

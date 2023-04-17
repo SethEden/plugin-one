@@ -6,7 +6,7 @@
  * Some of the logic here is duplicated from the Haystacks repo, but kept super basic intentionally.
  * Logging from the plugin will remain hard-coded, because the data isn't loaded,
  * and by the time it is loaded its already useless to log.
- * So uncomment the lines in the plugin code if you need to log from the plugin,and leave them commented out if you don't need to log.
+ * So uncomment the lines in the plugin code if you need to log from the plugin, and leave them commented out if you don't need to log.
  * This is setup here so that the logs can be added to the application level log file,
  * especially to include data, as the data can be too much and will easily overflow the console buffer.
  * @requires module:plugin.constants
@@ -38,6 +38,7 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @function getLogFileNameAndPath
  * @description Determines, using the Haystacks configuration settings data passed as input to the plugin entry-point,
  * what the log file name and path should be.
+ * @param {object} haystacksConfigData A JSON object that contains all of the configuration data including the log file name and path.
  * @return {string} The full path and file name for the log file.
  * @author Seth Hollingsead
  * @date 2023/02/13
@@ -90,6 +91,10 @@ async function consoleLog(classPath, message) {
 /**
  * @function appendMessageToFile
  * @description Opens a file and appends a message to the file, then closes the file.
+ * @param {string} message The message that should be appended to the log file.
+ * @return {void}
+ * @author Seth Hollingsead
+ * @date 2023/02/13
  */
 async function appendMessageToFile(message) {
   // let functionName = appendMessageToFile.name;
@@ -124,7 +129,7 @@ async function appendMessageToFile(message) {
  * @description Returns a time stamp string formatted according to the input formatting string.
  * @param {string} formatString The formatting string, that tells moment in what format to
  * return the value for the day, month, year, hour, minute, second and millisecond.
- * @return {string} A time stamp string that has been formatted acording to the input format.
+ * @return {string} A time stamp string that has been formatted according to the input format.
  * @author Seth Hollingsead
  * @date 2023/01/13
  */

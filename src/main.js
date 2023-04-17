@@ -100,7 +100,7 @@ async function initializePlugin(inputMetaData) {
     pathSeparator = bas.cForwardSlash;
   }
   let rootPathArray = rootPath.split(pathSeparator);
-  rootPathArray.pop(); // remove any bin or src folder from the path.
+  rootPathArray.pop(); // Remove any bin or src folder from the path.
   rootPath = rootPathArray.join(pathSeparator);
   // await loggers.consoleLog(namespacePrefix + functionName, msg.crootPathIs + rootPath);
   let logFilePathAndName = await loggers.getLogFileNameAndPath(inputMetaData);
